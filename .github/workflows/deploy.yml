@@ -27,15 +27,15 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ${{env.working-directory}}
-        run: npm ci --no-audit
+        run: yarn install --frozen-lockfile
 
       - name: Lint
         working-directory: ${{env.working-directory}}
-        run: npm run lint
+        run: yarn run lint
 
       - name: Build
         working-directory: ${{env.working-directory}}
-        run: npm run build
+        run: yarn run build
 
       - name: Deploy to S3 Production
         uses: jakejarvis/s3-sync-action@v0.5.1
