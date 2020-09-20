@@ -1,0 +1,23 @@
+root = true
+
+[*]
+end_of_line = lf
+
+[*.{js,jsx,cjs,mjs,ts,tsx}]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = off
+quote_type = double
+
+[*.{css,scss}]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = off
