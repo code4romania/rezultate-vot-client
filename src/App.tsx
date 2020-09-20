@@ -1,25 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { ElectionScopePicker, useElectionScopePickerApi, makeElectionApi, ElectionScopeIncomplete } from "@code4ro/reusable-components";
+
+const electionApi = makeElectionApi();
 
 function App() {
+  const [scope, setScope] = useState<ElectionScopeIncomplete>({ type: "national" });
+  const apiData = useElectionScopePickerApi(electionApi, scope);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ElectionScopePicker value={scope} onChange={setScope} apiData={apiData} />
   );
 }
 
