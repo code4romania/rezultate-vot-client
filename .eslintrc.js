@@ -39,5 +39,6 @@ module.exports = {
     ],
     "@typescript-eslint/camelcase": "off", // Due to a bug
     "react/prop-types": "off",
+    "import/no-unresolved": "off", // TS handles this
   },
 };

@@ -1,11 +1,16 @@
-import { ElectionTimeline } from "@code4ro/reusable-components";
 import React from "react";
-import { useElectionList } from "./ElectionListProvider";
+import { Redirect, Route, Switch } from "react-router-dom";
+import { BallotPage } from "./BallotPage";
 
 export const AppLayout: React.FC = () => {
-  const { data: items } = useElectionList();
-  if (!items) {
-    return null;
-  }
-  return <ElectionTimeline items={items} />;
+  return (
+    <Switch>
+      <Route path="/elections">
+        <BallotPage />
+      </Route>
+      <Route>
+        <Redirect to="/elections" />
+      </Route>
+    </Switch>
+  );
 };

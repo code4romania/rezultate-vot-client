@@ -1099,6 +1099,13 @@
     date-fns "^2.16.1"
     react-select "^3.1.0"
 
+"@code4ro/reusable-components@dapetcu21/reusable-components#cd9180670c":
+  version "0.1.0"
+  resolved "https://codeload.github.com/dapetcu21/reusable-components/tar.gz/cd9180670c15a138d6721ca979451a5aa8e49fbe"
+  dependencies:
+    date-fns "^2.16.1"
+    react-select "^3.1.0"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
