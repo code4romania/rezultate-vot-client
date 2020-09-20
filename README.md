@@ -22,13 +22,19 @@ If you would like to suggest new functionality, open an Issue and mark it as a _
 
 ### Programming languages
 
+* [TypeScript](https://www.typescriptlang.org)
+
 ### Platforms
+
+* [Create React App](https://create-react-app.dev)
 
 ### Frontend framework
 
+* [ReactJS](https://reactjs.org)
+
 ### Package managers
 
-### Database technology & provider
+* [Yarn](https://yarnpkg.com)
 
 ## Repos and projects
 
