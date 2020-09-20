@@ -1092,9 +1092,9 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@code4ro/reusable-components@dapetcu21/reusable-components#9e137cfbca656":
+"@code4ro/reusable-components@dapetcu21/reusable-components#c213f0d":
   version "0.1.0"
-  resolved "https://codeload.github.com/dapetcu21/reusable-components/tar.gz/9e137cfbca6560271cc8bd34d95eec3249c6a180"
+  resolved "https://codeload.github.com/dapetcu21/reusable-components/tar.gz/c213f0d4fa4a8f8c7db1a52df8a8b55ee22b8819"
   dependencies:
     date-fns "^2.16.1"
     react-select "^3.1.0"

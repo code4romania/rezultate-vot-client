@@ -1,0 +1,40 @@
+$header-height: 7rem;
+
+.root {
+  height: $header-height;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  background-color: #ffcc00;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  align-self: stretch;
+  margin-left: 1rem;
+  height: 100%;
+  width: auto;
+}
+
+.separator {
+  flex: 1;
+}
+
+.navLink {
+  color: #ffffff;
+}
+
+.navLinkActive {
+  color: red;
+}
+
+.contentPadding {
+  height: $header-height;
+  width: 100%;
+}
