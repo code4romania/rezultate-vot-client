@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@code4ro/reusable-components": "code4romania/reusable-components#b2fb3910025f07",
+    "@code4ro/reusable-components": "dapetcu21/reusable-components#9e137cfbca656",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
