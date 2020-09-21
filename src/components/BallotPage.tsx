@@ -1,15 +1,74 @@
-import React, { useCallback } from "react";
-import { ElectionBallotMeta, ElectionTimeline } from "@code4ro/reusable-components";
-import { Redirect, useHistory, useLocation, useRouteMatch } from "react-router-dom";
+import React, { useCallback, useMemo } from "react";
+import {
+  ElectionBallotMeta,
+  ElectionScopeIncomplete,
+  electionScopeIsComplete,
+  ElectionScopePicker,
+  ElectionTimeline,
+  useBallotData,
+  useElectionScopePickerApi,
+} from "@code4ro/reusable-components";
+import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
 
 import { useBallotList } from "./BallotListProvider";
 import { ErrorMessage } from "./ErrorMessage";
 import { Loader } from "./Loader";
 import classes from "./BallotPage.module.scss";
-import { toNumber } from "../functions/urlState";
+import { prependQuestionMark, scopeFromSearch, searchFromScope, toNumber } from "../functions/urlState";
+import { useElectionApi } from "./ElectionAPIContext";
+import { BallotTabs } from "./BallotTabs";
+import { TurnoutTab } from "./TurnoutTab";
+import { ResultsTab } from "./ResultsTab";
 
-const BallotContent: React.FC<{ ballotId: number }> = () => {
-  return <span>Content!</span>;
+const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
+  const location = useLocation();
+  const history = useHistory();
+
+  const [scope, completeness] = useMemo(() => {
+    const s = scopeFromSearch(location.search);
+    return [s, electionScopeIsComplete(s)];
+  }, [location.search]);
+
+  const onScopeChange = useCallback(
+    (newScope: ElectionScopeIncomplete) => {
+      history.push({ ...location, search: prependQuestionMark(searchFromScope(newScope)) });
+    },
+    [location, history],
+  );
+
+  const electionApi = useElectionApi();
+  const scopePickerData = useElectionScopePickerApi(electionApi, scope);
+  const ballotData = useBallotData(electionApi, ballotId, completeness.complete);
+
+  const ballotList = useBallotList();
+  const meta: ElectionBallotMeta | null = useMemo(() => {
+    if (ballotData.data) return ballotData.data.meta;
+    return ballotList.data?.find((x) => x.ballotId === ballotId) || null;
+  }, [ballotData.data, ballotList.data, ballotId]);
+
+  return (
+    <>
+      <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
+      <BallotTabs ballotId={ballotId}>
+        <ErrorMessage error={ballotData.error} sideMargins />
+        {!ballotData.data && ballotData.loading ? (
+          <Loader />
+        ) : (
+          <Switch>
+            <Route path={`/elections/${ballotId}/turnout`}>
+              <TurnoutTab meta={meta} ballot={ballotData.data} scope={ballotData.data?.scope || scope} />
+            </Route>
+            <Route path={`/elections/${ballotId}/results`}>
+              <ResultsTab meta={meta} ballot={ballotData.data} scope={ballotData.data?.scope || scope} />
+            </Route>
+            <Route>
+              <Redirect to={`/elections/${ballotId}/turnout`} />
+            </Route>
+          </Switch>
+        )}
+      </BallotTabs>
+    </>
+  );
 };
 
 const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => {
