@@ -9,6 +9,9 @@ export const AppLayout: React.FC = () => {
     <>
       <Header />
       <Switch>
+        <Route path="/elections/:ballotId">
+          <BallotPage />
+        </Route>
         <Route path="/elections">
           <BallotPage />
         </Route>

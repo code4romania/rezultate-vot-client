@@ -1,2 +1,28 @@
-.root {
+@import '../styles/variables';
+
+$timeline-sidebar-width: 19rem;
+$timeline-sidebar-margin: 1rem;
+
+.splitView {
+  position: relative;
+}
+
+.timelineSidebar {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  height: calc(100vh - #{$header-height});
+  width: $timeline-sidebar-width;
+  overflow-y: auto;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  padding-top: 1rem;
+}
+
+.content {
+  margin-left: ($timeline-sidebar-width + $timeline-sidebar-margin);
+  width: calc(100% - #{$timeline-sidebar-width} - #{$timeline-sidebar-margin});
+  min-height: calc(100vh - #{$header-height});
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
 }
