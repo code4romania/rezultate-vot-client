@@ -1092,16 +1092,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@code4ro/reusable-components@dapetcu21/reusable-components#c213f0d":
-  version "0.1.0"
-  resolved "https://codeload.github.com/dapetcu21/reusable-components/tar.gz/c213f0d4fa4a8f8c7db1a52df8a8b55ee22b8819"
-  dependencies:
-    date-fns "^2.16.1"
-    react-select "^3.1.0"
-
-"@code4ro/reusable-components@dapetcu21/reusable-components#cd9180670c":
-  version "0.1.0"
-  resolved "https://codeload.github.com/dapetcu21/reusable-components/tar.gz/cd9180670c15a138d6721ca979451a5aa8e49fbe"
+"@code4ro/reusable-components@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.1.tgz#6f59905417d4296aaa4722b5744756e2417d0f46"
+  integrity sha512-AenWoBsDXi7w1ViBjc/sCAatp72DyqOci/3FyyPMtTNAPU5F27Gw1k0Hp8y05gudL+KEKQ0nPM2OEASQ5E+6ew==
   dependencies:
     date-fns "^2.16.1"
     react-select "^3.1.0"
