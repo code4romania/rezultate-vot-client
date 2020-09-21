@@ -20,9 +20,15 @@ $timeline-sidebar-margin: 1rem;
 }
 
 .content {
+  box-sizing: border-box;
   margin-left: ($timeline-sidebar-width + $timeline-sidebar-margin);
   width: calc(100% - #{$timeline-sidebar-width} - #{$timeline-sidebar-margin});
   min-height: calc(100vh - #{$header-height});
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
+  padding: 1.5rem 2.5rem;
+}
+
+.scopeSeparator {
+  margin-top: 0.5rem;
 }

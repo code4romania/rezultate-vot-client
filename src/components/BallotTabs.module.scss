@@ -1,3 +1,39 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.content {
+  padding: 1rem 1.5rem;
+  border: 1px #ededed solid;
+}
+
+.navLink {
+  display: block;
+  padding: 0.4rem 1.5rem;
+  border: 1px transparent solid;
+  border-bottom: 4px transparent solid;
+  color: #3E3E3E;
+  text-decoration: none;
+
+  &:hover {
+    border-top-color: #ededed;
+    border-left-color: #ededed;
+    border-right-color: #ededed;
+  }
+}
+
 .navLinkActive {
-  color: red;
+  font-weight: 600;;
+  border-top-color: #ededed;
+  border-left-color: #ededed;
+  border-right-color: #ededed;
+  border-bottom-color: #FFCC00;
 }

@@ -24,12 +24,12 @@ type Props = {
 
 export const BallotTabs: React.FC<Props> = ({ ballotId, children }) => {
   return (
-    <div>
-      <div>
+    <div className={classes.root}>
+      <div className={classes.tabs}>
         <TabNavLink to={`/elections/${ballotId}/turnout`}>Prezența la vot</TabNavLink>
-        <TabNavLink to={`/elections/${ballotId}/results`}>Rezultate</TabNavLink>
+        <TabNavLink to={`/elections/${ballotId}/results`}>Rezultate vot</TabNavLink>
       </div>
-      <div>{children}</div>
+      <div className={classes.content}>{children}</div>
     </div>
   );
 };

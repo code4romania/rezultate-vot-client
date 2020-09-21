@@ -13,12 +13,13 @@ import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from 
 import { useBallotList } from "./BallotListProvider";
 import { ErrorMessage } from "./ErrorMessage";
 import { Loader } from "./Loader";
-import classes from "./BallotPage.module.scss";
 import { prependQuestionMark, scopeFromSearch, searchFromScope, toNumber } from "../functions/urlState";
 import { useElectionApi } from "./ElectionAPIContext";
 import { BallotTabs } from "./BallotTabs";
 import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
+import { Separator } from "./Separator";
+import classes from "./BallotPage.module.scss";
 
 const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
   const location = useLocation();
@@ -46,9 +47,13 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
     return ballotList.data?.find((x) => x.ballotId === ballotId) || null;
   }, [ballotData.data, ballotList.data, ballotId]);
 
+  const shownData = completeness.complete ? ballotData.data : null;
+  const shownScope = (completeness.complete && ballotData.data?.scope) || scope;
+
   return (
     <>
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
+      <Separator className={classes.scopeSeparator} />
       <BallotTabs ballotId={ballotId}>
         <ErrorMessage error={ballotData.error} sideMargins />
         {!ballotData.data && ballotData.loading ? (
@@ -56,10 +61,10 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
         ) : (
           <Switch>
             <Route path={`/elections/${ballotId}/turnout`}>
-              <TurnoutTab meta={meta} ballot={ballotData.data} scope={ballotData.data?.scope || scope} />
+              <TurnoutTab meta={meta} ballot={shownData} scope={shownScope} />
             </Route>
             <Route path={`/elections/${ballotId}/results`}>
-              <ResultsTab meta={meta} ballot={ballotData.data} scope={ballotData.data?.scope || scope} />
+              <ResultsTab meta={meta} ballot={shownData} scope={shownScope} />
             </Route>
             <Route>
               <Redirect to={`/elections/${ballotId}/turnout`} />
