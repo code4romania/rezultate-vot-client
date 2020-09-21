@@ -16,7 +16,7 @@ type Props = {
 export const TurnoutTab: React.FC<Props> = ({ meta, ballot, scope }) => {
   return (
     <>
-      <ElectionTurnoutSection meta={meta || undefined} scope={scope} turnout={ballot?.turnout} />
+      <ElectionTurnoutSection meta={meta} scope={scope} turnout={ballot?.turnout} />
       {ballot?.observation && <ElectionObservationSection observation={ballot.observation} />}
     </>
   );
