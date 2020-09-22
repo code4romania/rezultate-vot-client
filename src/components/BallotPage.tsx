@@ -66,7 +66,7 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
           </div>
         }
       >
-        <ErrorMessage error={ballotData.error} sideMargins />
+        <ErrorMessage error={ballotData.error} />
         {!ballotData.data && ballotData.loading ? (
           <Loader />
         ) : (
