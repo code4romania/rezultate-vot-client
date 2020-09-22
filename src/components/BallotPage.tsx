@@ -61,7 +61,7 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
         indicators={
           <div className={classes.indicators}>
             {ballotData.data && ballotData.loading && <Ellipsis color="#ffcc00" size={30} />}
-            {true && !ballotData.loading && <Label>Datele se actualizează automat</Label>}
+            {meta?.live && !ballotData.loading && <Label>Datele se actualizează automat</Label>}
           </div>
         }
       >
