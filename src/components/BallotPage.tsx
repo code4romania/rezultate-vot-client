@@ -22,6 +22,7 @@ import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
 import { Separator } from "./Separator";
 import classes from "./BallotPage.module.scss";
+import { NewsSection } from "./NewsSection";
 
 const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
   const location = useLocation();
@@ -82,6 +83,7 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
           </Switch>
         )}
       </BallotTabs>
+      {shownData?.electionNews && shownData.electionNews.length > 0 && <NewsSection feed={shownData.electionNews} />}
     </>
   );
 };
