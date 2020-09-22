@@ -1092,10 +1092,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@code4ro/reusable-components@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.4.tgz#5e02f22e8ed2d5dfce8910cf3604c5e19bef46b5"
-  integrity sha512-YaY1IfzcRhuuORVOHnoZiQbLE1OA0llNIiufQrHKP6Wa2/LtLW7EnS+LP6uAZ3V0zER+VeDNMpLZQPgzbb/cww==
+"@code4ro/reusable-components@0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.5.tgz#3061884c821dd77f5e74c8bb347fb3c3fbbc2615"
+  integrity sha512-9eLIZ98dZ3P3tGmhr/wRhJaqsfXOwLvPf9oycX/t6fOMfwWI7+8aAMY6ZvjKszMO01z9WgWhzIX0FIUBPrDtqg==
   dependencies:
     date-fns "^2.16.1"
     react-select "^3.1.0"
