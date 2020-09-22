@@ -1,16 +1,19 @@
 import React, { useCallback, useMemo } from "react";
 import {
+  DivLabel,
   ElectionBallotMeta,
   ElectionScopeIncomplete,
   electionScopeIsComplete,
   ElectionScopePicker,
   ElectionTimeline,
+  Heading2,
   Label,
   useBallotData,
   useElectionScopePickerApi,
 } from "@code4ro/reusable-components";
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
+import { lightFormat, parseISO } from "date-fns";
 
 import { useBallotList } from "./BallotListProvider";
 import { ErrorMessage } from "./ErrorMessage";
@@ -21,8 +24,9 @@ import { BallotTabs } from "./BallotTabs";
 import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
 import { Separator } from "./Separator";
-import classes from "./BallotPage.module.scss";
 import { NewsSection } from "./NewsSection";
+
+import classes from "./BallotPage.module.scss";
 
 const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
   const location = useLocation();
@@ -55,6 +59,16 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
 
   return (
     <>
+      {meta && (
+        <div className={classes.title}>
+          <Heading2>
+            {meta.title} {lightFormat(parseISO(meta.date), "yyyy")}{" "}
+          </Heading2>
+          {meta.ballot && <DivLabel>{meta.ballot}</DivLabel>}
+          {meta.subtitle && <DivLabel>{meta.subtitle}</DivLabel>}
+          <Separator />
+        </div>
+      )}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <Separator className={classes.scopeSeparator} />
       <BallotTabs
