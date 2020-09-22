@@ -29,7 +29,7 @@ export const ResultsTab: React.FC<Props> = ({ meta, ballot, scope }) => {
           <ElectionResultsProcess className={classes.process} results={ballot.results} />
         </>
       )}
-      {ballot?.results?.totalSeats && ballot.results.totalSeats >= 2 && (
+      {ballot?.results?.totalSeats != null && ballot.results.totalSeats >= 2 && (
         <>
           <Separator />
           <ElectionResultsSeats className={classes.seats} results={ballot.results} />
