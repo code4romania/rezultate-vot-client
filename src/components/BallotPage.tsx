@@ -5,10 +5,12 @@ import {
   electionScopeIsComplete,
   ElectionScopePicker,
   ElectionTimeline,
+  Label,
   useBallotData,
   useElectionScopePickerApi,
 } from "@code4ro/reusable-components";
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
+import { Ellipsis } from "react-spinners-css";
 
 import { useBallotList } from "./BallotListProvider";
 import { ErrorMessage } from "./ErrorMessage";
@@ -54,7 +56,15 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
     <>
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <Separator className={classes.scopeSeparator} />
-      <BallotTabs ballotId={ballotId}>
+      <BallotTabs
+        ballotId={ballotId}
+        indicators={
+          <div className={classes.indicators}>
+            {ballotData.data && ballotData.loading && <Ellipsis color="#ffcc00" size={30} />}
+            {true && !ballotData.loading && <Label>Datele se actualizează automat</Label>}
+          </div>
+        }
+      >
         <ErrorMessage error={ballotData.error} sideMargins />
         {!ballotData.data && ballotData.loading ? (
           <Loader />

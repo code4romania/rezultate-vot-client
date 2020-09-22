@@ -32,3 +32,9 @@ $timeline-sidebar-margin: 1rem;
 .scopeSeparator {
   margin-top: 0.5rem;
 }
+
+.indicators {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
