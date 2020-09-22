@@ -46,7 +46,7 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
 
   const electionApi = useElectionApi();
   const scopePickerData = useElectionScopePickerApi(electionApi, scope);
-  const ballotData = useBallotData(electionApi, ballotId, completeness.complete);
+  const ballotData = useBallotData(electionApi, completeness.complete ? ballotId : null, completeness.complete);
 
   const ballotList = useBallotList();
   const meta: ElectionBallotMeta | null = useMemo(() => {
