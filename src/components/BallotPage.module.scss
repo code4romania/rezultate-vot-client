@@ -8,6 +8,7 @@ $timeline-sidebar-margin: 1rem;
 }
 
 .timelineSidebar {
+  box-sizing: border-box;
   position: fixed;
   z-index: 10;
   top: $header-height;
@@ -18,6 +19,7 @@ $timeline-sidebar-margin: 1rem;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
   padding-top: 1rem;
+  padding-right: 0.5rem;
 }
 
 .collapsed .timelineSidebar {
