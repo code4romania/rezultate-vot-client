@@ -5,6 +5,7 @@ import {
   ElectionResultsSeats,
   ElectionResultsSummarySection,
   ElectionResultsTableSection,
+  ElectionScopeIncomplete,
   ElectionScopeIncompleteResolved,
   Heading2,
 } from "@code4ro/reusable-components";
@@ -16,12 +17,19 @@ type Props = {
   meta?: ElectionBallotMeta | null;
   ballot?: ElectionBallot | null;
   scope: ElectionScopeIncompleteResolved;
+  onScopeChange?: (scope: ElectionScopeIncomplete) => unknown;
 };
 
-export const ResultsTab: React.FC<Props> = ({ meta, ballot, scope }) => {
+export const ResultsTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange }) => {
   return (
     <>
-      <ElectionResultsSummarySection meta={meta} scope={scope} results={ballot?.results} separator={<Separator />} />
+      <ElectionResultsSummarySection
+        meta={meta}
+        scope={scope}
+        onScopeChange={onScopeChange}
+        results={ballot?.results}
+        separator={<Separator />}
+      />
       {ballot?.results && (
         <>
           <Separator />
