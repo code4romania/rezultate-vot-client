@@ -16,11 +16,14 @@
 
   z-index: 100;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+
+  padding-right: 1rem;
 }
 
 .logo {
   align-self: stretch;
   margin-left: 1rem;
+  margin-right: 1rem;
   height: 100%;
   width: auto;
 }
@@ -30,11 +33,32 @@
 }
 
 .navLink {
-  color: #ffffff;
+  color: #352245;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
 }
 
 .navLinkActive {
-  color: red;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .root {
+    padding-right: 0.5rem;
+  }
+
+  .navLink {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: 0;
+  }
 }
 
 .contentPadding {

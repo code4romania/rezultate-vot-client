@@ -20,6 +20,9 @@ export const Header: React.FC = () => {
         >
           Despre noi
         </a>
+        <a href="https://code4.ro/ro/doneaza/" target="_blank" rel="noreferrer noopener" className={classes.navLink}>
+          Donează
+        </a>
       </div>
       <div className={classes.contentPadding} />
     </>
