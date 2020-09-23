@@ -53,30 +53,6 @@ $timeline-sidebar-margin: 1rem;
   align-items: center;
 }
 
-.title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.titleContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.clickableTitle {
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.titleNavIcon {
-  color: #3e3e3e;
-  margin-right: 1rem;
-  font-size: 2rem;
-}
-
 .tapToClose {
   z-index: 9;
   position: fixed;

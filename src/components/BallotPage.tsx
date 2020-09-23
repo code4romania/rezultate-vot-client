@@ -1,13 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useMemo, useState } from "react";
 import {
-  DivLabel,
   ElectionBallotMeta,
   ElectionScopeIncomplete,
   electionScopeIsComplete,
   ElectionScopePicker,
   ElectionTimeline,
-  Heading2,
   Label,
   mergeClasses,
   useBallotData,
@@ -16,9 +14,6 @@ import {
 } from "@code4ro/reusable-components";
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
-import { lightFormat, parseISO } from "date-fns";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useBallotList } from "./BallotListProvider";
 import { ErrorMessage } from "./ErrorMessage";
@@ -30,27 +25,9 @@ import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
 import { Separator } from "./Separator";
 import { NewsSection } from "./NewsSection";
+import { BallotTitle } from "./BallotTitle";
 
 import classes from "./BallotPage.module.scss";
-
-const BallotTitle: React.FC<{ meta: ElectionBallotMeta; onOpenSidebar?: () => void }> = ({ meta, onOpenSidebar }) => {
-  return (
-    <>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
-      <div className={mergeClasses(classes.title, onOpenSidebar && classes.clickableTitle)} onClick={onOpenSidebar}>
-        {onOpenSidebar && <FontAwesomeIcon icon={faAngleLeft} className={classes.titleNavIcon} />}
-        <div className={classes.titleContainer}>
-          <Heading2>
-            {meta.title} {lightFormat(parseISO(meta.date), "yyyy")}{" "}
-          </Heading2>
-          {meta.ballot && <DivLabel>{meta.ballot}</DivLabel>}
-          {meta.subtitle && <DivLabel>{meta.subtitle}</DivLabel>}
-        </div>
-      </div>
-      <Separator />
-    </>
-  );
-};
 
 const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> = ({ ballotId, onOpenSidebar }) => {
   const location = useLocation();
