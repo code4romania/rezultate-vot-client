@@ -23,7 +23,6 @@ import { useElectionApi } from "./ElectionAPIContext";
 import { BallotTabs } from "./BallotTabs";
 import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
-import { Separator } from "./Separator";
 import { NewsSection } from "./NewsSection";
 import { BallotTitle } from "./BallotTitle";
 
@@ -62,7 +61,6 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
     <>
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
-      <Separator className={classes.scopeSeparator} />
       <BallotTabs
         ballotId={ballotId}
         indicators={
