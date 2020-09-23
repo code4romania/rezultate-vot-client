@@ -1,4 +1,5 @@
-import React, { useCallback, useMemo } from "react";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useCallback, useMemo, useState } from "react";
 import {
   DivLabel,
   ElectionBallotMeta,
@@ -8,12 +9,16 @@ import {
   ElectionTimeline,
   Heading2,
   Label,
+  mergeClasses,
   useBallotData,
+  useDimensions,
   useElectionScopePickerApi,
 } from "@code4ro/reusable-components";
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
 import { lightFormat, parseISO } from "date-fns";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useBallotList } from "./BallotListProvider";
 import { ErrorMessage } from "./ErrorMessage";
@@ -28,7 +33,26 @@ import { NewsSection } from "./NewsSection";
 
 import classes from "./BallotPage.module.scss";
 
-const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
+const BallotTitle: React.FC<{ meta: ElectionBallotMeta; onOpenSidebar?: () => void }> = ({ meta, onOpenSidebar }) => {
+  return (
+    <>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
+      <div className={mergeClasses(classes.title, onOpenSidebar && classes.clickableTitle)} onClick={onOpenSidebar}>
+        {onOpenSidebar && <FontAwesomeIcon icon={faAngleLeft} className={classes.titleNavIcon} />}
+        <div className={classes.titleContainer}>
+          <Heading2>
+            {meta.title} {lightFormat(parseISO(meta.date), "yyyy")}{" "}
+          </Heading2>
+          {meta.ballot && <DivLabel>{meta.ballot}</DivLabel>}
+          {meta.subtitle && <DivLabel>{meta.subtitle}</DivLabel>}
+        </div>
+      </div>
+      <Separator />
+    </>
+  );
+};
+
+const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> = ({ ballotId, onOpenSidebar }) => {
   const location = useLocation();
   const history = useHistory();
 
@@ -59,16 +83,7 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
 
   return (
     <>
-      {meta && (
-        <div className={classes.title}>
-          <Heading2>
-            {meta.title} {lightFormat(parseISO(meta.date), "yyyy")}{" "}
-          </Heading2>
-          {meta.ballot && <DivLabel>{meta.ballot}</DivLabel>}
-          {meta.subtitle && <DivLabel>{meta.subtitle}</DivLabel>}
-          <Separator />
-        </div>
-      )}
+      {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <Separator className={classes.scopeSeparator} />
       <BallotTabs
@@ -102,9 +117,20 @@ const BallotContent: React.FC<{ ballotId: number }> = ({ ballotId }) => {
   );
 };
 
+const collapseBreakpoint = 1000;
+
 const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => {
   const match = useRouteMatch<{ ballotId: string }>();
   const ballotId = toNumber(match.params.ballotId);
+
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const onOpenSidebar = useCallback(() => {
+    setSidebarOpen(true);
+  }, []);
+
+  const onCloseSidebar = useCallback(() => {
+    setSidebarOpen(false);
+  }, []);
 
   const location = useLocation();
   const history = useHistory();
@@ -112,19 +138,28 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
     (meta: ElectionBallotMeta) => {
       const rest = location.pathname.match(/^\/elections\/[0-9]+(.*)$/);
       history.push({ ...location, pathname: `/elections/${meta.ballotId}${(rest && rest[1]) || ""}` });
+      setSidebarOpen(false);
     },
     [location, history],
   );
 
+  const [measureRef, { width = window.innerWidth }] = useDimensions();
+  const collapsed = width < collapseBreakpoint;
+
   return (
-    <div className={classes.splitView}>
-      <div className={classes.timelineSidebar}>
+    <div className={mergeClasses(classes.splitView, collapsed && classes.collapsed)}>
+      <div style={{ position: "absolute", width: "100vw" }} ref={measureRef} />
+      <div className={mergeClasses(classes.timelineSidebar, collapsed && sidebarOpen && classes.timelineSidebarOpen)}>
         <ElectionTimeline items={ballots} selectedBallotId={ballotId} onSelectBallot={onSelectBallot} />
       </div>
       <div className={classes.content}>
         {ballotId == null && ballots.length >= 1 && <Redirect to={`/elections/${ballots[0].ballotId}`} />}
-        {ballotId != null && <BallotContent ballotId={ballotId} />}
+        {ballotId != null && (
+          <BallotContent ballotId={ballotId} onOpenSidebar={collapsed ? onOpenSidebar : undefined} />
+        )}
       </div>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
+      {collapsed && sidebarOpen && <div className={classes.tapToClose} onClick={onCloseSidebar} />}
     </div>
   );
 };

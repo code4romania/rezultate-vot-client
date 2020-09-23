@@ -9,14 +9,23 @@ $timeline-sidebar-margin: 1rem;
 
 .timelineSidebar {
   position: fixed;
+  z-index: 10;
   top: $header-height;
   left: 0;
   height: calc(100vh - #{$header-height});
-  width: $timeline-sidebar-width;
+  width: calc(min(#{$timeline-sidebar-width}, 100vw));
   overflow-y: auto;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
   padding-top: 1rem;
+}
+
+.collapsed .timelineSidebar {
+  transition: transform 0.3s ease;
+  transform: translate(0, 0);
+  &:not(.timelineSidebarOpen) {
+    transform: translate(-105%, 0);
+  }
 }
 
 .content {
@@ -29,6 +38,11 @@ $timeline-sidebar-margin: 1rem;
   padding: 1.5rem 2.5rem;
 }
 
+.collapsed .content {
+  margin-left: 0;
+  width: 100%;
+}
+
 .scopeSeparator {
   margin-top: 0.5rem;
 }
@@ -37,4 +51,37 @@ $timeline-sidebar-margin: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.clickableTitle {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.titleNavIcon {
+  color: #3e3e3e;
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+.tapToClose {
+  z-index: 9;
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  height: calc(100vh - #{$header-height});
+  width: 100vw;
 }
