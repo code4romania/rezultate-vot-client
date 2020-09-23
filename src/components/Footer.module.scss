@@ -3,6 +3,80 @@
 .root {
   width: 100%;
   box-sizing: border-box;
-  height: 3rem;
   background-color: $color-secondary;
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1.5rem 2.5rem;
+
+  @media (max-width: 680px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.logo {
+  height: 2.75rem;
+  width: auto;
+  margin-bottom: 2rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link {
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  color: #ffffff;
+  font-size: (14rem / 16);
+
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.linkCta {
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.separator {
+  height: 2px;
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.socialButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.socialButton {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2.5rem;
+  padding: 0.5rem;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.disclaimer {
+  text-align: center;
+  color: #ffffff;
+  line-height: 1.5;
 }
