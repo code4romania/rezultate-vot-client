@@ -44,6 +44,11 @@
   transition: transform 0.2s ease;
 
   padding: 0.5rem 1rem;
+
+  @media (max-width: 680px) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 
 .titleHeaderShown {

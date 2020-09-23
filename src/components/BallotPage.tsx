@@ -126,6 +126,7 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
   return (
     <div className={mergeClasses(classes.splitView, collapsed && classes.collapsed)}>
       <div style={{ position: "absolute", width: "100vw" }} ref={measureRef} />
+      {!collapsed && <style>{"html { background-color: #EFEFEF; } "}</style>}
       <div className={mergeClasses(classes.timelineSidebar, collapsed && sidebarOpen && classes.timelineSidebarOpen)}>
         <ElectionTimeline items={ballots} selectedBallotId={ballotId} onSelectBallot={onSelectBallot} />
       </div>
