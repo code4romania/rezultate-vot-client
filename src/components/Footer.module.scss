@@ -1,0 +1,8 @@
+@import '../styles/variables.scss';
+
+.root {
+  width: 100%;
+  box-sizing: border-box;
+  height: 3rem;
+  background-color: $color-secondary;
+}

@@ -25,6 +25,7 @@ import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
 import { NewsSection } from "./NewsSection";
 import { BallotTitle } from "./BallotTitle";
+import { Footer } from "./Footer";
 
 import classes from "./BallotPage.module.scss";
 
@@ -131,7 +132,12 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
       <div className={classes.content}>
         {ballotId == null && ballots.length >= 1 && <Redirect to={`/elections/${ballots[0].ballotId}`} />}
         {ballotId != null && (
-          <BallotContent ballotId={ballotId} onOpenSidebar={collapsed ? onOpenSidebar : undefined} />
+          <>
+            <div className={classes.contentWrapper}>
+              <BallotContent ballotId={ballotId} onOpenSidebar={collapsed ? onOpenSidebar : undefined} />
+            </div>
+            <Footer />
+          </>
         )}
       </div>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
