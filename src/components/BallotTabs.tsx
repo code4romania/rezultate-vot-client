@@ -30,7 +30,7 @@ export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators }) 
         <TabNavLink to={`/elections/${ballotId}/turnout`}>Prezența la vot</TabNavLink>
         <TabNavLink to={`/elections/${ballotId}/results`}>Rezultate vot</TabNavLink>
         <div className={classes.separator} />
-        {indicators}
+        <div className={classes.indicators}>{indicators}</div>
       </div>
       <div className={classes.content}>{children}</div>
     </div>
