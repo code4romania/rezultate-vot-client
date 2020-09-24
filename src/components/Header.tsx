@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
           Istoric alegeri
         </NavLink>
         <NavLink to="/about" exact className={classes.navLink} activeClassName={classes.navLinkActive}>
-          Despre noi
+          Despre proiect
         </NavLink>
         <a href="https://code4.ro/ro/doneaza/" target="_blank" rel="noreferrer noopener" className={classes.navLink}>
           Donează

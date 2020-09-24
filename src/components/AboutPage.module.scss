@@ -1,0 +1,30 @@
+@import "../styles/variables.scss";
+
+.root {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+
+  a {
+    color: $color-secondary;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  ul li {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
