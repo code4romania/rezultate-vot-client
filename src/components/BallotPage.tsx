@@ -26,7 +26,6 @@ import { ResultsTab } from "./ResultsTab";
 import { NewsSection } from "./NewsSection";
 import { BallotTitle } from "./BallotTitle";
 import { Footer } from "./Footer";
-import { EmbedButton } from "./EmbedButton";
 
 import classes from "./BallotPage.module.scss";
 import { withToastProvider } from "./toast/withToastProvider";
@@ -62,7 +61,6 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
-      <EmbedButton path={ballotId} />
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <BallotTabs
@@ -91,7 +89,9 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           </Switch>
         )}
       </BallotTabs>
-      {shownData?.electionNews && shownData.electionNews.length > 0 && <NewsSection feed={shownData.electionNews} />}
+      {shownData?.electionNews &&
+       shownData.electionNews.length > 0 &&
+       <NewsSection feed={shownData.electionNews} ballotId={ballotId} />}
     </>
   );
 };
@@ -149,7 +149,7 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
   );
 };
 
-export const BallotPageNoContext: React.FC = () => {
+export const BallotPage: React.FC = withToastProvider(() => {
   const ballotList = useBallotList();
   return (
     <>
@@ -158,6 +158,4 @@ export const BallotPageNoContext: React.FC = () => {
       {ballotList.data && <SplitView ballots={ballotList.data} />}
     </>
   );
-};
-
-export const BallotPage = withToastProvider(BallotPageNoContext);
+});

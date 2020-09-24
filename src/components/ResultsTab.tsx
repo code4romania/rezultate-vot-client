@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { Separator } from "./Separator";
 import classes from "./ResultsTab.module.scss";
+import { EmbedButton } from "./EmbedButton";
 
 type Props = {
   meta?: ElectionBallotMeta | null;
@@ -22,7 +23,8 @@ type Props = {
 
 export const ResultsTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange }) => {
   return (
-    <>
+    <div className="relative">
+      <EmbedButton path={`${meta?.ballotId}/results`} />
       <ElectionResultsSummarySection
         meta={meta}
         scope={scope}
@@ -49,6 +51,6 @@ export const ResultsTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange
           <ElectionResultsTableSection meta={meta} results={ballot.results} />
         </>
       )}
-    </>
+    </div>
   );
 };

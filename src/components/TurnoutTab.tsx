@@ -7,6 +7,7 @@ import {
   ElectionTurnoutSection,
 } from "@code4ro/reusable-components";
 import React from "react";
+import { EmbedButton } from "./EmbedButton";
 
 type Props = {
   meta?: ElectionBallotMeta | null;
@@ -18,8 +19,14 @@ type Props = {
 export const TurnoutTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange }) => {
   return (
     <>
-      <ElectionTurnoutSection meta={meta} scope={scope} onScopeChange={onScopeChange} turnout={ballot?.turnout} />
-      {ballot?.observation && <ElectionObservationSection observation={ballot.observation} />}
+      <div className="relative">
+        <EmbedButton path={`${meta?.ballotId}/turnout`} />
+        <ElectionTurnoutSection meta={meta} scope={scope} onScopeChange={onScopeChange} turnout={ballot?.turnout} />
+      </div>
+      <div className="relative">
+        <EmbedButton path={`${meta?.ballotId}/observation`} />
+        {ballot?.observation && <ElectionObservationSection observation={ballot.observation} />}
+      </div>
     </>
   );
 };

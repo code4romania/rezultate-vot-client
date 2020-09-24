@@ -3,7 +3,7 @@ import * as React from "react";
 import classes from "./EmbedButton.module.scss";
 import { useToast } from "./toast/withToastProvider";
 
-export const EmbedButton: React.FC<{ path: number }> = ({path}) => {
+export const EmbedButton: React.FC<{ path: string }> = ({path}) => {
   const toast = useToast();
   const footerHeight = 75;
   const getEmbeddableCode = `<iframe
