@@ -80,7 +80,13 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
               <TurnoutTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
             </Route>
             <Route path={`/elections/${ballotId}/results`}>
-              <ResultsTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
+              <ResultsTab
+                api={electionApi}
+                meta={meta}
+                ballot={shownData}
+                scope={shownScope}
+                onScopeChange={onScopeChange}
+              />
             </Route>
             <Route>
               <Redirect to={`/elections/${ballotId}/turnout`} />

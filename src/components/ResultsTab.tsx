@@ -1,6 +1,7 @@
 import {
   ElectionBallot,
   ElectionBallotMeta,
+  ElectionMapAPI,
   ElectionResultsProcess,
   ElectionResultsSeats,
   ElectionResultsSummarySection,
@@ -14,16 +15,18 @@ import { Separator } from "./Separator";
 import classes from "./ResultsTab.module.scss";
 
 type Props = {
+  api: ElectionMapAPI;
   meta?: ElectionBallotMeta | null;
   ballot?: ElectionBallot | null;
   scope: ElectionScopeIncompleteResolved;
   onScopeChange?: (scope: ElectionScopeIncomplete) => unknown;
 };
 
-export const ResultsTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange }) => {
+export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange }) => {
   return (
     <>
       <ElectionResultsSummarySection
+        api={api}
         meta={meta}
         scope={scope}
         onScopeChange={onScopeChange}

@@ -1092,11 +1092,12 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@code4ro/reusable-components@0.1.11":
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.11.tgz#2bffd3a798aa68c8fd730f16bbe23ffcb97ed087"
-  integrity sha512-5H4eTDrTbHWRaCgjgBzPdk6gc63VzOian7ELpt92CjaNAbCfifLkoFpQwYU/wHXc0cC9jI61Nne5pFBgLTyB2w==
+"@code4ro/reusable-components@0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.12.tgz#1df9d20ec63953177c03b91d6d693bfa0166ece6"
+  integrity sha512-qqJna2NjoYVRcW1wJZjhP86aTT1JUulYcgbL2D949huUf8PogFeGM1vDVNlT8wPJn32Zxf0ZsCClFPZc+P/IhA==
   dependencies:
+    color "^3.1.2"
     date-fns "^2.16.1"
     react-select "^3.1.0"
 
@@ -3423,7 +3424,7 @@ color-string@^1.5.2:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@^3.0.0:
+color@^3.0.0, color@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
   integrity sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==
