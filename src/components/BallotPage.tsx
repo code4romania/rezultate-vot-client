@@ -29,6 +29,7 @@ import { Footer } from "./Footer";
 import { EmbedButton } from "./EmbedButton";
 
 import classes from "./BallotPage.module.scss";
+import { withToastProvider } from "./toast/withToastProvider";
 
 const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> = ({ ballotId, onOpenSidebar }) => {
   const location = useLocation();
@@ -61,8 +62,8 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
-      {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <EmbedButton path={ballotId} />
+      {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <BallotTabs
         ballotId={ballotId}
@@ -148,7 +149,7 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
   );
 };
 
-export const BallotPage: React.FC = () => {
+export const BallotPageNoContext: React.FC = () => {
   const ballotList = useBallotList();
   return (
     <>
@@ -158,3 +159,5 @@ export const BallotPage: React.FC = () => {
     </>
   );
 };
+
+export const BallotPage = withToastProvider(BallotPageNoContext);

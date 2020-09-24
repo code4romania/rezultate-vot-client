@@ -1,0 +1,16 @@
+.embedBtn {
+  position: absolute;
+  right: 2.5rem;
+  top: 1.5rem;
+  width: 16px;
+  height: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
