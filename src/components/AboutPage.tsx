@@ -1,8 +1,6 @@
-import { Body, DivBody, Heading1, makeTypographyComponent } from "@code4ro/reusable-components";
-import React, { ComponentProps } from "react";
+import { DivBody, Heading1 } from "@code4ro/reusable-components";
+import React from "react";
 import classes from "./AboutPage.module.scss";
-
-const BodyP = makeTypographyComponent<ComponentProps<"p">>("p", "body");
 
 export const AboutPage: React.FC = () => (
   <DivBody className={classes.root}>
