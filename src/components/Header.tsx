@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
       <div className={classes.root}>
         <Logo className={classes.logo} />
         <div className={classes.separator} />
-        <NavLink to="/elections" className={classes.navLink} activeClassName={classes.navLinkActive}>
+        <NavLink to="/web/elections" className={classes.navLink} activeClassName={classes.navLinkActive}>
           Istoric alegeri
         </NavLink>
         <a

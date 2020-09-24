@@ -21,14 +21,16 @@ type Props = {
   ballotId: number;
   children: ReactNode;
   indicators?: ReactNode;
+  mode?: string;
 };
 
-export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators }) => {
+export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators, mode }) => {
+  const baseUrl = `/${mode || 'elections'}`
   return (
     <div className={classes.root}>
       <div className={classes.tabs}>
-        <TabNavLink to={`/elections/${ballotId}/turnout`}>Prezența la vot</TabNavLink>
-        <TabNavLink to={`/elections/${ballotId}/results`}>Rezultate vot</TabNavLink>
+        <TabNavLink to={`${baseUrl}/${ballotId}/turnout`}>Prezența la vot</TabNavLink>
+        <TabNavLink to={`${baseUrl}/${ballotId}/results`}>Rezultate vot</TabNavLink>
         <div className={classes.separator} />
         <div className={classes.indicators}>{indicators}</div>
       </div>
