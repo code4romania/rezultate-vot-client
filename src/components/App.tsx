@@ -16,8 +16,7 @@ const electionApi = process.env.REACT_APP_ELECTION_API_MOCKS
   : makeElectionApi({
       apiUrl:
         (process.env.NODE_ENV !== "production" && window.localStorage.getItem("code4roElectionApiUrl")) ||
-        process.env.REACT_APP_ELECTION_API_URL ||
-        "http://api.rezultatevot.ro/api", // TODO: Remove when we switch to HTTPs
+        process.env.REACT_APP_ELECTION_API_URL,
     });
 
 export const App: React.FC = () => {
