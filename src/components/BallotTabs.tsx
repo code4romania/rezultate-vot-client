@@ -25,7 +25,7 @@ type Props = {
 };
 
 export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators, mode }) => {
-  const baseUrl = `/${mode || 'elections'}`
+  const baseUrl = `/${mode || "elections"}`;
   return (
     <div className={classes.root}>
       <div className={classes.tabs}>

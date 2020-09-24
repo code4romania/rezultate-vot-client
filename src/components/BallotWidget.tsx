@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 import {
   ElectionBallotMeta,
   ElectionScopeIncomplete,
   electionScopeIsComplete,
   ElectionScopePicker,
-  ElectionTimeline,
   Label,
   mergeClasses,
   useBallotData,
@@ -23,10 +22,7 @@ import { useElectionApi } from "./ElectionAPIContext";
 import { BallotTabs } from "./BallotTabs";
 import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
-import { NewsSection } from "./NewsSection";
 import { BallotTitle } from "./BallotTitle";
-import { Footer } from "./Footer";
-import { EmbedButton } from "./EmbedButton";
 
 import classes from "./BallotPage.module.scss";
 
@@ -62,10 +58,10 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
   return (
     <>
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
-      <EmbedButton path={ballotId} />
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <BallotTabs
         ballotId={ballotId}
+        mode="embed"
         indicators={
           <div className={classes.indicators}>
             {ballotData.data && ballotData.loading && <Ellipsis color="#ffcc00" size={30} />}
@@ -78,48 +74,27 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           <Loader />
         ) : (
           <Switch>
-            <Route path={`/web/elections/${ballotId}/turnout`}>
+            <Route path={`/embed/${ballotId}/turnout`}>
               <TurnoutTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
             </Route>
-            <Route path={`/web/elections/${ballotId}/results`}>
+            <Route path={`/embed/${ballotId}/results`}>
               <ResultsTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
             </Route>
             <Route>
-              <Redirect to={`/web/elections/${ballotId}/turnout`} />
+              <Redirect to={`/embed/${ballotId}/turnout`} />
             </Route>
           </Switch>
         )}
       </BallotTabs>
-      {shownData?.electionNews && shownData.electionNews.length > 0 && <NewsSection feed={shownData.electionNews} />}
     </>
   );
 };
 
 const collapseBreakpoint = 1000;
 
-const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => {
+const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = () => {
   const match = useRouteMatch<{ ballotId: string }>();
   const ballotId = toNumber(match.params.ballotId);
-
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-  const onOpenSidebar = useCallback(() => {
-    setSidebarOpen(true);
-  }, []);
-
-  const onCloseSidebar = useCallback(() => {
-    setSidebarOpen(false);
-  }, []);
-
-  const location = useLocation();
-  const history = useHistory();
-  const onSelectBallot = useCallback(
-    (meta: ElectionBallotMeta) => {
-      const rest = location.pathname.match(/^\/web\/elections\/[0-9]+(.*)$/);
-      history.push({ ...location, pathname: `/web/elections/${meta.ballotId}${(rest && rest[1]) || ""}` });
-      setSidebarOpen(false);
-    },
-    [location, history],
-  );
 
   const [measureRef, { width = window.innerWidth }] = useDimensions();
   const collapsed = width < collapseBreakpoint;
@@ -128,27 +103,14 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
     <div className={mergeClasses(classes.splitView, collapsed && classes.collapsed)}>
       <div style={{ position: "absolute", width: "100vw" }} ref={measureRef} />
       {!collapsed && <style>{"html { background-color: #EFEFEF; } "}</style>}
-      <div className={mergeClasses(classes.timelineSidebar, collapsed && sidebarOpen && classes.timelineSidebarOpen)}>
-        <ElectionTimeline items={ballots} selectedBallotId={ballotId} onSelectBallot={onSelectBallot} />
+      <div className={classes.widgetContent}>
+        {ballotId != null && <BallotContent ballotId={ballotId} />}
       </div>
-      <div className={classes.content}>
-        {ballotId == null && ballots.length >= 1 && <Redirect to={`/web/elections/${ballots[0].ballotId}`} />}
-        {ballotId != null && (
-          <>
-            <div className={classes.contentWrapper}>
-              <BallotContent ballotId={ballotId} onOpenSidebar={collapsed ? onOpenSidebar : undefined} />
-            </div>
-            <Footer />
-          </>
-        )}
-      </div>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
-      {collapsed && sidebarOpen && <div className={classes.tapToClose} onClick={onCloseSidebar} />}
     </div>
   );
 };
 
-export const BallotPage: React.FC = () => {
+export const BallotWidget: React.FC = () => {
   const ballotList = useBallotList();
   return (
     <>
