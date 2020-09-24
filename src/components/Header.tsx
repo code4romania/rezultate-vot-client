@@ -12,14 +12,9 @@ export const Header: React.FC = () => {
         <NavLink to="/elections" className={classes.navLink} activeClassName={classes.navLinkActive}>
           Istoric alegeri
         </NavLink>
-        <a
-          href="https://code4.ro/ro/cine-suntem/"
-          target="_blank"
-          rel="noreferrer noopener"
-          className={classes.navLink}
-        >
+        <NavLink to="/about" exact className={classes.navLink} activeClassName={classes.navLinkActive}>
           Despre noi
-        </a>
+        </NavLink>
         <a href="https://code4.ro/ro/doneaza/" target="_blank" rel="noreferrer noopener" className={classes.navLink}>
           Donează
         </a>
