@@ -11,6 +11,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
   REACT_APP_HEREMAPS_API_KEY: ${{ secrets.HEREMAPS_API_KEY }}
+  PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
 
 jobs:
   deploy:
