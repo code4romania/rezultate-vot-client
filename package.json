@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@code4ro/reusable-components": "0.1.16",
-    "@code4ro/taskforce-fe-components": "^2.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",

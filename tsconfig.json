@@ -20,7 +20,6 @@
     "jsx": "react"
   },
   "include": [
-    "src",
-    "node_modules/@code4ro/taskforce-fe-components"
+    "src"
   ]
 }
