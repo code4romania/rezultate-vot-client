@@ -13,6 +13,7 @@ import {
 import React from "react";
 import { Separator } from "./Separator";
 import classes from "./ResultsTab.module.scss";
+import { Loader } from "./Loader";
 
 type Props = {
   api: ElectionMapAPI;
@@ -20,9 +21,10 @@ type Props = {
   ballot?: ElectionBallot | null;
   scope: ElectionScopeIncompleteResolved;
   onScopeChange?: (scope: ElectionScopeIncomplete) => unknown;
+  loading?: boolean;
 };
 
-export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange }) => {
+export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange, loading }) => {
   return (
     <>
       <ElectionResultsSummarySection
@@ -32,6 +34,7 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
         onScopeChange={onScopeChange}
         results={ballot?.results}
         separator={<Separator />}
+        loader={loading && <Loader />}
       />
       {ballot?.results && (
         <>
