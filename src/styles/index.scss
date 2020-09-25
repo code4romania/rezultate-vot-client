@@ -1,6 +1,6 @@
-@import './reset.scss';
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+@import "./_reset.scss";
+@import "./_fonts.scss";
 
 body {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
