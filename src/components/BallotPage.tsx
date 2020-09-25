@@ -77,14 +77,14 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           <Loader />
         ) : (
           <Switch>
-            <Route path={`/web/elections/${ballotId}/turnout`}>
+            <Route path={`/elections/${ballotId}/turnout`}>
               <TurnoutTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
             </Route>
-            <Route path={`/web/elections/${ballotId}/results`}>
+            <Route path={`/elections/${ballotId}/results`}>
               <ResultsTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
             </Route>
             <Route>
-              <Redirect to={`/web/elections/${ballotId}/turnout`} />
+              <Redirect to={`/elections/${ballotId}/turnout`} />
             </Route>
           </Switch>
         )}
@@ -115,8 +115,8 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
   const history = useHistory();
   const onSelectBallot = useCallback(
     (meta: ElectionBallotMeta) => {
-      const rest = location.pathname.match(/^\/web\/elections\/[0-9]+(.*)$/);
-      history.push({ ...location, pathname: `/web/elections/${meta.ballotId}${(rest && rest[1]) || ""}` });
+      const rest = location.pathname.match(/^\/elections\/[0-9]+(.*)$/);
+      history.push({ ...location, pathname: `/elections/${meta.ballotId}${(rest && rest[1]) || ""}` });
       setSidebarOpen(false);
     },
     [location, history],
@@ -133,7 +133,7 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
         <ElectionTimeline items={ballots} selectedBallotId={ballotId} onSelectBallot={onSelectBallot} />
       </div>
       <div className={classes.content}>
-        {ballotId == null && ballots.length >= 1 && <Redirect to={`/web/elections/${ballots[0].ballotId}`} />}
+        {ballotId == null && ballots.length >= 1 && <Redirect to={`/elections/${ballots[0].ballotId}`} />}
         {ballotId != null && (
           <>
             <div className={classes.contentWrapper}>
