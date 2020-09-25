@@ -6,7 +6,8 @@ export function makeEmbedCode(path: string, scope?: ElectionScope | null): strin
   if (scope) {
     url.search = prependQuestionMark(searchFromScope(scope));
   }
-  return `<iframe scrolling="no" width="100%" height="600" style="border:0" src="${url.href}"></iframe>`;
+
+  return `<script src="${window.location.origin}/iframeResizer.min.js" async></script><iframe scrolling="no" width="100%" height="600" style="border:0" src="${url.href}" onload="(window.iFrameResize || function () { var q = window.__iframeResizerQueue || []; window.__iframeResizerQueue = q; q.push(arguments); })({}, this)"></iframe>`;
 }
 
 export function copyEmbedCode(toast: { add: (s: string) => void }, code: string): void {
