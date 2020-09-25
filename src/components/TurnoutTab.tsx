@@ -8,23 +8,30 @@ import {
 } from "@code4ro/reusable-components";
 import React from "react";
 import { EmbedButton, EmbedButtonWrapper } from "./EmbedButton";
+import { Loader } from "./Loader";
 
 type Props = {
   meta?: ElectionBallotMeta | null;
   ballot?: ElectionBallot | null;
   scope: ElectionScopeIncompleteResolved;
   onScopeChange?: (scope: ElectionScopeIncomplete) => unknown;
+  loading?: boolean;
 };
 
-export const TurnoutTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange }) => {
+export const TurnoutTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange, loading }) => {
   return (
     <>
       <EmbedButtonWrapper>
-        <EmbedButton path={`${meta?.ballotId}/turnout`} />
-        <ElectionTurnoutSection meta={meta} scope={scope} onScopeChange={onScopeChange} turnout={ballot?.turnout} />
+        {meta && <EmbedButton path={`${meta.ballotId}/turnout`} />}
+        <ElectionTurnoutSection
+          scope={scope}
+          onScopeChange={onScopeChange}
+          turnout={ballot?.turnout}
+          loader={loading && <Loader />}
+        />
       </EmbedButtonWrapper>
       <EmbedButtonWrapper>
-        <EmbedButton path={`${meta?.ballotId}/observation`} />
+        {meta && <EmbedButton path={`${meta.ballotId}/observation`} />}
         {ballot?.observation && <ElectionObservationSection observation={ballot.observation} />}
       </EmbedButtonWrapper>
     </>

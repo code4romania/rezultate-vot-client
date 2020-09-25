@@ -7,5 +7,5 @@ export const TurnoutWidget: React.FC = () => {
 
   if (!data) return null;
 
-  return <ElectionTurnoutSection meta={data.meta} scope={data.scope} turnout={data.turnout} />;
+  return <ElectionTurnoutSection scope={data.scope} turnout={data.turnout} />;
 };

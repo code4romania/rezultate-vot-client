@@ -1,6 +1,7 @@
 import {
   ElectionBallot,
   ElectionBallotMeta,
+  ElectionMapAPI,
   ElectionResultsProcess,
   ElectionResultsSeats,
   ElectionResultsSummarySection,
@@ -11,26 +12,31 @@ import {
 } from "@code4ro/reusable-components";
 import React from "react";
 import { Separator } from "./Separator";
-import classes from "./ResultsTab.module.scss";
 import { EmbedButton, EmbedButtonWrapper } from "./EmbedButton";
+import { Loader } from "./Loader";
+import classes from "./ResultsTab.module.scss";
 
 type Props = {
+  api: ElectionMapAPI;
   meta?: ElectionBallotMeta | null;
   ballot?: ElectionBallot | null;
   scope: ElectionScopeIncompleteResolved;
   onScopeChange?: (scope: ElectionScopeIncomplete) => unknown;
+  loading?: boolean;
 };
 
-export const ResultsTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange }) => {
+export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange, loading }) => {
   return (
     <EmbedButtonWrapper>
-      <EmbedButton path={`${meta?.ballotId}/results`} />
+      {meta && <EmbedButton path={`${meta.ballotId}/results`} />}
       <ElectionResultsSummarySection
+        api={api}
         meta={meta}
         scope={scope}
         onScopeChange={onScopeChange}
         results={ballot?.results}
         separator={<Separator />}
+        loader={loading && <Loader />}
       />
       {ballot?.results && (
         <>

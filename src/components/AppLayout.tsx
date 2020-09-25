@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+import { AboutPage } from "./AboutPage";
 import { BallotPage } from "./BallotPage";
 import { EmbedWrapper } from "./EmbedWrapper";
 import { Header } from "./Header";
@@ -29,6 +30,9 @@ export const AppLayout: React.FC = () => {
               </Route>
             </Switch>
           </EmbedWrapper>
+        </Route>
+        <Route path="/about" exact>
+          <AboutPage />
         </Route>
         <Route>
           <Header />

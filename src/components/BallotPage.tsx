@@ -73,15 +73,28 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
         }
       >
         <ErrorMessage error={ballotData.error} />
-        {!ballotData.data && ballotData.loading ? (
+        {!ballotData.data && ballotData.loading && !completeness.complete ? (
           <Loader />
         ) : (
           <Switch>
             <Route path={`/elections/${ballotId}/turnout`}>
-              <TurnoutTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
+              <TurnoutTab
+                meta={meta}
+                ballot={shownData}
+                scope={shownScope}
+                onScopeChange={onScopeChange}
+                loading={!shownData && ballotData.loading}
+              />
             </Route>
             <Route path={`/elections/${ballotId}/results`}>
-              <ResultsTab meta={meta} ballot={shownData} scope={shownScope} onScopeChange={onScopeChange} />
+              <ResultsTab
+                api={electionApi}
+                meta={meta}
+                ballot={shownData}
+                scope={shownScope}
+                onScopeChange={onScopeChange}
+                loading={!shownData && ballotData.loading}
+              />
             </Route>
             <Route>
               <Redirect to={`/elections/${ballotId}/turnout`} />
