@@ -24,13 +24,13 @@ export const AboutPage: React.FC = () => (
           voastre.
         </p>
         <a href="https://code4.ro/ro/doneaza/">
-          <button className={classes.donateButton}>
+          <button className={classes.donateButton} type="button">
             Donează
           </button>
         </a>
       </div>
       <div>
-        <img src={tfsgLogo} alt=""/>
+        <img src={tfsgLogo} alt="" />
       </div>
     </div>
     <p>Pe Rezultate Vot veți găsi:</p>
@@ -82,12 +82,10 @@ export const AboutPage: React.FC = () => (
     </ul>
 
     <Heading1>Experți</Heading1>
-    <p>
-      Lorem ipsum
-    </p>
+    <p>Lorem ipsum</p>
     <div className={classes.expertWrapper}>
       <div className={classes.expertImage}>
-        <img src={claudiuTufis} alt=""/>
+        <img src={claudiuTufis} alt="" />
       </div>
       <div className={classes.expertDescription}>
         <Heading3>Claudiu Tufiș</Heading3>
@@ -95,20 +93,19 @@ export const AboutPage: React.FC = () => (
           Conferențiar universitar în cadrul Facultății de Științe Politice din cadrul Universității din București.
           Doctor în științe politice al Pennsylvania State University. Înainte de doctorat am obținut o diplomă de
           master în sociologie la Central European University și o diplomă de licență în sociologie la Universitatea din
-          București.
-          Principalele sale arii de interes academic includ: cultură politică, comportament politic, studii electorale,
-          societate civilă, mișcări sociale, politici publice în domeniul învățământului superior, metodologia
-          cercetării sociale și analiza datelor sociale.
-          Studiile sale electorale includ Alegerile pentru Parlamentul European (coord. cu Mircea Comșa și Andrei
-          Gheorghiță, publicat la Polirom), Alegerile prezidențiale din România, 2009 (coord. cu Mircea Comșa și Andrei
-          Gheorghiță, publicat la Presa Universitară Clujeană), precum și articole în jurnale precum European Politics
-          and Society, Problems of Post-Communism, sau European Political Science Review.
+          București. Principalele sale arii de interes academic includ: cultură politică, comportament politic, studii
+          electorale, societate civilă, mișcări sociale, politici publice în domeniul învățământului superior,
+          metodologia cercetării sociale și analiza datelor sociale. Studiile sale electorale includ Alegerile pentru
+          Parlamentul European (coord. cu Mircea Comșa și Andrei Gheorghiță, publicat la Polirom), Alegerile
+          prezidențiale din România, 2009 (coord. cu Mircea Comșa și Andrei Gheorghiță, publicat la Presa Universitară
+          Clujeană), precum și articole în jurnale precum European Politics and Society, Problems of Post-Communism, sau
+          European Political Science Review.
         </p>
       </div>
     </div>
     <div className={classes.expertWrapper}>
       <div className={classes.expertImage}>
-        <img src={alexandraIancu} alt=""/>
+        <img src={alexandraIancu} alt="" />
       </div>
       <div className={classes.expertDescription}>
         <Heading3>Alexandra Iancu</Heading3>
@@ -116,22 +113,20 @@ export const AboutPage: React.FC = () => (
           Lector universitar, prodecan la Facultatea de Științe Politice din cadrul Universității din București cu
           experiență de predare în domeniul politicii comparate, partidelor politice și democratizărilor în context
           european. A obținut titlul de doctor în științe politice al Universității Libere din Bruxelles și al
-          Universității din București.
-          Publicații recente: La démocratie roumaine à ses débuts postcommunistes : élitisme, apolitisme et informalité
-          politique (Iași:Institutul European, 2019) ; Corruption et politique en Europe. Enjeux, réformes et
-          controverses (coord. cu Silvia Marton, Paris: L’Harmattan, 2019 ; Party Members and Their Importance in Non-EU
-          Countries (coord. cu Sergiu Gherghina, Sorina Soare, Londra: Routledge, 2018).
+          Universității din București. Publicații recente: La démocratie roumaine à ses débuts postcommunistes :
+          élitisme, apolitisme et informalité politique (Iași:Institutul European, 2019) ; Corruption et politique en
+          Europe. Enjeux, réformes et controverses (coord. cu Silvia Marton, Paris: L’Harmattan, 2019 ; Party Members
+          and Their Importance in Non-EU Countries (coord. cu Sergiu Gherghina, Sorina Soare, Londra: Routledge, 2018).
           Domeniile sale de cercetare vizează: organizațiile partidelor politice, recrutarea elitelor și istoria
           corupției politice (a denunțării corupției politice și a practicilor de patronaj politic) în Europa Centrală
           și de Est. O axă de cercetare recent dezvoltată se referă la analiza discursurilor politice contestare la
           adresa Uniunii europene în noile state membre.
-
         </p>
       </div>
     </div>
     <div className={classes.expertWrapper}>
       <div className={classes.expertImage}>
-        <img src={florinFesnic} alt=""/>
+        <img src={florinFesnic} alt="" />
       </div>
       <div className={classes.expertDescription}>
         <Heading3>Florin Feșnic</Heading3>
@@ -150,7 +145,7 @@ export const AboutPage: React.FC = () => (
     </div>
     <div className={classes.expertWrapper}>
       <div className={classes.expertImage}>
-        <img src={bogdanVoicu} alt=""/>
+        <img src={bogdanVoicu} alt="" />
       </div>
       <div className={classes.expertDescription}>
         <Heading3>Bogdan Voicu</Heading3>
