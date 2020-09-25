@@ -1,9 +1,9 @@
-import { electionScopeIsComplete } from "@code4ro/reusable-components";
-import React, { ReactNode, useCallback, useMemo } from "react";
+import React, { ReactNode, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 
 import embedImage from "../assets/embed.png";
-import { prependQuestionMark, scopeFromSearch, searchFromScope } from "../functions/urlState";
+import { copyEmbedCode, makeEmbedCode } from "../functions/embed";
+import { useCompleteScopeFromSearch } from "../functions/urlState";
 import classes from "./EmbedButton.module.scss";
 import { useToast } from "./toast/withToastProvider";
 
@@ -14,23 +14,11 @@ export const EmbedButtonWrapper: React.FC<{ children: ReactNode }> = ({ children
 export const EmbedButton: React.FC<{ path: string }> = ({ path }) => {
   const toast = useToast();
   const location = useLocation();
-  const scope = useMemo(() => electionScopeIsComplete(scopeFromSearch(location.search))?.complete, [location.search]);
+  const scope = useCompleteScopeFromSearch();
 
   const onCopyEmbedCode = useCallback(() => {
     if (!scope) return;
-
-    const auxiliaryField = document.createElement("textarea");
-    const url = new URL(`/embed/${path}`, window.location.origin);
-    url.search = prependQuestionMark(searchFromScope(scope));
-
-    auxiliaryField.innerText = `<iframe scrolling="no" width="100%" height="600" style="border:0" src="${url.href}"></iframe>`;
-
-    document.body.appendChild(auxiliaryField);
-    auxiliaryField.select();
-    document.execCommand("copy");
-
-    auxiliaryField.remove();
-    toast.add("Codul de embed a fost copiat în clipboard");
+    copyEmbedCode(toast, makeEmbedCode(path, scope));
   }, [scope, path, toast]);
 
   // if already embedded hide the button

@@ -45,10 +45,10 @@ export const scopeFromSearch = (searchParams: string): ElectionScopeIncomplete =
   }
 };
 
-export const searchFromScope = (scope: ElectionScopeIncomplete): string => {
-  if (scope.type === "national") return "";
-
+export const searchParamsFromScope = (scope: ElectionScopeIncomplete): URLSearchParams => {
   const params = new URLSearchParams();
+  if (scope.type === "national") return params;
+
   params.append("division", scope.type);
 
   switch (scope.type) {
@@ -68,7 +68,12 @@ export const searchFromScope = (scope: ElectionScopeIncomplete): string => {
       break;
   }
 
-  return params.toString();
+  return params;
+};
+
+export const searchFromScope = (scope: ElectionScopeIncomplete): string => {
+  if (scope.type === "national") return "";
+  return searchParamsFromScope(scope).toString();
 };
 
 export const prependQuestionMark = (s: string): string => (s ? `?${s}` : s);
