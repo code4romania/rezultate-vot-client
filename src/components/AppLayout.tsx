@@ -31,14 +31,14 @@ export const AppLayout: React.FC = () => {
             </Switch>
           </EmbedWrapper>
         </Route>
-        <Route path="/about" exact>
-          <AboutPage />
-        </Route>
         <Route>
           <Header />
           <Switch>
             <Route exact path="/">
               <Redirect to="/elections" />
+            </Route>
+            <Route path="/about" exact>
+              <AboutPage />
             </Route>
             <Route path="/elections/:ballotId">
               <BallotPage />
