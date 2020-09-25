@@ -10,26 +10,14 @@ interface Props {
 }
 
 export const Logo: React.FC<Props> = ({className, homeLink, ongLink}: Props) => {
-
-  const ongLinkProps: {href?: string} = {};
-  const homeLinkProps: {href?: string} = {};
-
-  if (ongLink) {
-    ongLinkProps.href = "https://code4.ro";
-  }
-
-  if (homeLink) {
-    homeLinkProps.href = "/";
-  }
-
   return (
     <div className={[classes.logo, className].join(' ')}>
-      <a className={classes.projectLogo} {...homeLinkProps}>
+      <a className={classes.projectLogo} href={homeLink ? "/" : undefined}>
         <ProjectLogo />
       </a>
       <div className={classes.code4Logo}>
         by
-        <a target="_blank" rel="noopener noreferrer" {...ongLinkProps}>
+        <a target="_blank" rel="noopener noreferrer" href={ongLink ? "https://code4.ro" : undefined}>
           <Code4Logo />
         </a>
       </div>
