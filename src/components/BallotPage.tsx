@@ -28,6 +28,7 @@ import { BallotTitle } from "./BallotTitle";
 import { Footer } from "./Footer";
 
 import classes from "./BallotPage.module.scss";
+import { withToastProvider } from "./toast/withToastProvider";
 
 const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> = ({ ballotId, onOpenSidebar }) => {
   const location = useLocation();
@@ -78,6 +79,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           <Switch>
             <Route path={`/elections/${ballotId}/turnout`}>
               <TurnoutTab
+                meta={meta}
                 ballot={shownData}
                 scope={shownScope}
                 onScopeChange={onScopeChange}
@@ -100,7 +102,9 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           </Switch>
         )}
       </BallotTabs>
-      {shownData?.electionNews && shownData.electionNews.length > 0 && <NewsSection feed={shownData.electionNews} />}
+      {shownData?.electionNews && shownData.electionNews.length > 0 && (
+        <NewsSection feed={shownData.electionNews} ballotId={ballotId} />
+      )}
     </>
   );
 };
@@ -158,7 +162,7 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => 
   );
 };
 
-export const BallotPage: React.FC = () => {
+export const BallotPage: React.FC = withToastProvider(() => {
   const ballotList = useBallotList();
   return (
     <>
@@ -167,4 +171,4 @@ export const BallotPage: React.FC = () => {
       {ballotList.data && <SplitView ballots={ballotList.data} />}
     </>
   );
-};
+});

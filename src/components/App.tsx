@@ -14,9 +14,7 @@ import { AppLayout } from "./AppLayout";
 const electionApi = process.env.REACT_APP_ELECTION_API_MOCKS
   ? mockElectionAPI
   : makeElectionApi({
-      apiUrl:
-        (process.env.NODE_ENV !== "production" && window.localStorage.getItem("code4roElectionApiUrl")) ||
-        process.env.REACT_APP_ELECTION_API_URL,
+      apiUrl: process.env.REACT_APP_ELECTION_API_URL,
     });
 
 export const App: React.FC = () => {

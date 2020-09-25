@@ -12,8 +12,9 @@ import {
 } from "@code4ro/reusable-components";
 import React from "react";
 import { Separator } from "./Separator";
-import classes from "./ResultsTab.module.scss";
+import { EmbedButton, EmbedButtonWrapper } from "./EmbedButton";
 import { Loader } from "./Loader";
+import classes from "./ResultsTab.module.scss";
 
 type Props = {
   api: ElectionMapAPI;
@@ -26,7 +27,8 @@ type Props = {
 
 export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange, loading }) => {
   return (
-    <>
+    <EmbedButtonWrapper>
+      {meta && <EmbedButton path={`${meta.ballotId}/results`} />}
       <ElectionResultsSummarySection
         api={api}
         meta={meta}
@@ -55,6 +57,6 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
           <ElectionResultsTableSection meta={meta} results={ballot.results} />
         </>
       )}
-    </>
+    </EmbedButtonWrapper>
   );
 };
