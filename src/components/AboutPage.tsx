@@ -6,6 +6,8 @@ import claudiuTufis from "../assets/claudiuTufis.png";
 import alexandraIancu from "../assets/alexandraIancu.png";
 import florinFesnic from "../assets/florinFesnic.png";
 import bogdanVoicu from "../assets/bogdanVoicu.png";
+import romeoAsiminei from "../assets/romeoAsiminei.png";
+import bogdanIvanel from "../assets/bogdanIvanel.jpg";
 import { Footer } from "./Footer";
 
 export const AboutPage: React.FC = () => (
@@ -54,7 +56,7 @@ export const AboutPage: React.FC = () => (
         Platforma Rezultate Vot face parte din ecosistemul electoral, alături de alte trei aplicații realizate pentru a
         crește gradul de transparență și de participare la procesul electoral.
       </p>
-      <ul>
+      <ul className={classes.lastList}>
         <li>
           <a href="http://monitorizarevot.ro">
             <strong>Monitorizare Vot</strong>
@@ -86,7 +88,11 @@ export const AboutPage: React.FC = () => (
       </ul>
 
       <Heading1>Experți</Heading1>
-      <p>Lorem ipsum</p>
+      <p>
+        Începând cu alegerile locale din 2020, conținutul bogat în date al platformei Rezultate Vot este completat de o
+        secțiune de comentarii și analize live, care vor pune în context datele de prezență / rezultatele afișate.
+        Specialiștii care vor oferi analize în timp real sunt:
+      </p>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
           <img src={claudiuTufis} alt="" />
@@ -125,6 +131,52 @@ export const AboutPage: React.FC = () => (
             istoria corupției politice (a denunțării corupției politice și a practicilor de patronaj politic) în Europa
             Centrală și de Est. O axă de cercetare recent dezvoltată se referă la analiza discursurilor politice
             contestare la adresa Uniunii europene în noile state membre.
+          </p>
+        </div>
+      </div>
+      <div className={classes.expertWrapper}>
+        <div className={classes.expertImage}>
+          <img src={bogdanIvanel} alt="" />
+        </div>
+        <div className={classes.expertDescription}>
+          <Heading3>Bogdan Ivănel</Heading3>
+          <p>
+            Bogdan Ivănel este doctor în drept internațional (Science Po, Paris, Franța), după un traseu academic ce
+            cuprinde BA & LLM Utrecht University, MSc Oxford University, Visiting Scholar UC Berkeley, în 2016 a fondat
+            Code for Romania, având de atunci rolul de CEO al organizației. Code for Romania pune tehnologia în slujba
+            comunităților în colaborare cu zeci de instituții și ONG-uri, depunând eforturi continue de a pune România
+            pe harta globală a tehnologie dezvoltate în scop civic. După mai mult de 10 ani în mediul academic, unde a
+            observat și analizat “pe teren” fenomene sociale din comunități afectate de conflicte ce țin de domeniul
+            dreptului internațional și de respectarea drepturilor și libertăților fundamentale ale omului, Bogdan Ivănel
+            a fondat Code for Romania în anul 2016. Scopul organizației a fost de la început să producă în România
+            schimbări sociale pozitive cu ajutorul tehnologiei. Ideea Code for Romania a crescut rapid într-o adevărată
+            mișcare socială constructivă și productivă devenind astăzi una dintre cele mai mari comunități din domeniul
+            civic tech la nivel global, cu peste 1.700 de voluntari de diverse specializări profesionale și care
+            lucrează simultan pe 11 fusuri orare diferite, fiind a doua cea mai mare comunitate de civic tech din lume,
+            după Code for America.
+          </p>
+        </div>
+      </div>
+      <div className={classes.expertWrapper}>
+        <div className={classes.expertImage}>
+          <img src={romeoAsiminei} alt="" />
+        </div>
+        <div className={classes.expertDescription}>
+          <Heading3>Romeo Asiminei</Heading3>
+          <p>
+            Romeo Asiminei este doctor în sociologie (teza cu titlul Mecanisme electorale. Alegeri, alegători şi
+            comportamente de vot în România) şi conferențiar universitar în cadrul Departamentului de Sociologie şi
+            Asistenţă Socială, Facultatea de Filosofie şi Ştiinţe Social-Politice, Universitatea "Alexandru Ioan Cuza"
+            din Iaşi. Din septembrie 2016 este Directorul acestui department. A fost bursier postdoctoral al Academiei
+            Române cu tema Diaspora românească şi construcţia deciziei de vot. Principalele sale domenii de interes
+            vizează sociologia electorală, comunicarea politică, sociologia opinei publice, metodologia sociologică,
+            economia socială și calitatea vieții. A publicat volumul Sociologie electorală. Alegeri, alegători şi
+            comportamente de vot (volum finanţat de Ministerul Educaţiei Naţionale în cadrul competiţiei naţionale
+            pentru subvenţionarea literaturii tehnico ştiinţifice pentru anul 2013) şi este coautor al volumului Atlasul
+            electoral al României 1990 – 2009 (volum premiat cu distincţia "Cea mai bună carte de ştiinţă a anului" la
+            Gala Bun de Tipar 2014). Este autor al mai multor rapoarte de cercetare, capitole de cărţi şi studii
+            publicate în reviste de specialitate din țară și străinătate. Are o vastă experienţă ca cercetător în
+            numeroase proiecte cu finanţare publică şi private, internațională și națională.
           </p>
         </div>
       </div>
