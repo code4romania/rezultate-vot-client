@@ -1,11 +1,15 @@
 import { electionScopeIsComplete } from "@code4ro/reusable-components";
-import React, { useCallback, useMemo } from "react";
+import React, { ReactNode, useCallback, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
 import embedImage from "../assets/embed.png";
 import { prependQuestionMark, scopeFromSearch, searchFromScope } from "../functions/urlState";
 import classes from "./EmbedButton.module.scss";
 import { useToast } from "./toast/withToastProvider";
+
+export const EmbedButtonWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
+  return <div className={classes.wrapper}>{children}</div>;
+};
 
 export const EmbedButton: React.FC<{ path: string }> = ({ path }) => {
   const toast = useToast();
