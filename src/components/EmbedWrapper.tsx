@@ -8,7 +8,7 @@ export const EmbedWrapper: React.FC<{ children: ReactNode }> = withToastProvider
     <>
       {children}
       <div className={classes.footer}>
-        <Logo className={classes.logo} ongLink/>
+        <Logo className={classes.logo} ongLink />
         <div className={classes.buttonWrap}>
           <a className={classes.button} target="_blank" rel="noopener noreferrer" href="https://code4.ro/ro/doneaza/">
             Doneaza

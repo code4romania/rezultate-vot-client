@@ -9,9 +9,9 @@ interface Props {
   ongLink?: boolean;
 }
 
-export const Logo: React.FC<Props> = ({className, homeLink, ongLink}: Props) => {
+export const Logo: React.FC<Props> = ({ className, homeLink, ongLink }) => {
   return (
-    <div className={[classes.logo, className].join(' ')}>
+    <div className={[classes.logo, className].join(" ")}>
       <a className={classes.projectLogo} href={homeLink ? "/" : undefined}>
         <ProjectLogo />
       </a>
@@ -22,5 +22,5 @@ export const Logo: React.FC<Props> = ({className, homeLink, ongLink}: Props) => 
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
