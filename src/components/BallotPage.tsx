@@ -89,9 +89,9 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           </Switch>
         )}
       </BallotTabs>
-      {shownData?.electionNews &&
-       shownData.electionNews.length > 0 &&
-       <NewsSection feed={shownData.electionNews} ballotId={ballotId} />}
+      {shownData?.electionNews && shownData.electionNews.length > 0 && (
+        <NewsSection feed={shownData.electionNews} ballotId={ballotId} />
+      )}
     </>
   );
 };

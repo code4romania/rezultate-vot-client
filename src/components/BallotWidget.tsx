@@ -104,9 +104,7 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = () => {
     <div className={mergeClasses(classes.splitView, collapsed && classes.collapsed)}>
       <div style={{ position: "absolute", width: "100vw" }} ref={measureRef} />
       {!collapsed && <style>{"html { background-color: #EFEFEF; } "}</style>}
-      <div className={classes.widgetContent}>
-        {ballotId != null && <BallotContent ballotId={ballotId} />}
-      </div>
+      <div className={classes.widgetContent}>{ballotId != null && <BallotContent ballotId={ballotId} />}</div>
     </div>
   );
 };

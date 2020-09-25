@@ -1,9 +1,10 @@
 import * as React from "react";
 
+import embedImage from "../assets/embed.png";
 import classes from "./EmbedButton.module.scss";
 import { useToast } from "./toast/withToastProvider";
 
-export const EmbedButton: React.FC<{ path: string }> = ({path}) => {
+export const EmbedButton: React.FC<{ path: string }> = ({ path }) => {
   const toast = useToast();
   const footerHeight = 75;
   const getEmbeddableCode = `<iframe
@@ -21,7 +22,7 @@ export const EmbedButton: React.FC<{ path: string }> = ({path}) => {
     document.execCommand("copy");
 
     auxiliaryField.remove();
-    toast.add('Codul de embed a fost copiat în clipboard');
+    toast.add("Codul de embed a fost copiat în clipboard");
   };
 
   // if already embedded hide the button
@@ -30,16 +31,8 @@ export const EmbedButton: React.FC<{ path: string }> = ({path}) => {
   }
 
   return (
-    <div
-      title="Copiază cod de embed"
-      className={classes.embedBtn}
-      onClick={handleCopyEmbedCode}
-    >
-      <img
-        src="/embed.png"
-        alt="embed"
-        className="fab-icon"
-      />
-    </div>
+    <button type="button" title="Copiază cod de embed" className={classes.embedBtn} onClick={handleCopyEmbedCode}>
+      <img src={embedImage} alt="embed" className="fab-icon" />
+    </button>
   );
 };

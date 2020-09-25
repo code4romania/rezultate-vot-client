@@ -2,12 +2,18 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 16px;
-  height: 16px;
-  padding: 8px;
-  border-radius: 4px;
+  box-sizing: border-box;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   background-color: #f0f0f0;
+  border-width: 0;
   cursor: pointer;
+
+  &:hover {
+    background-color: #cccccc;
+  }
 
   img {
     width: 100%;

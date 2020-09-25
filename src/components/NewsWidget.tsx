@@ -27,7 +27,6 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
     return electionScopeIsComplete(s);
   }, [location.search]);
 
-
   const electionApi = useElectionApi();
   const ballotData = useBallotData(electionApi, completeness.complete ? ballotId : null, completeness.complete);
 
@@ -37,11 +36,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
     shownData.observation = null;
   }
 
-  return (
-    <>
-    {shownData && shownData.electionNews && <NewsSection feed={shownData?.electionNews} />}
-    </>
-  );
+  return <>{shownData && shownData.electionNews && <NewsSection feed={shownData?.electionNews} />}</>;
 };
 
 const collapseBreakpoint = 1000;
@@ -57,9 +52,7 @@ const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = () => {
     <div className={mergeClasses(classes.splitView, collapsed && classes.collapsed)}>
       <div style={{ position: "absolute", width: "100vw" }} ref={measureRef} />
       {!collapsed && <style>{"html { background-color: #EFEFEF; } "}</style>}
-      <div className={classes.widgetContent}>
-        {ballotId != null && <BallotContent ballotId={ballotId} />}
-      </div>
+      <div className={classes.widgetContent}>{ballotId != null && <BallotContent ballotId={ballotId} />}</div>
     </div>
   );
 };
