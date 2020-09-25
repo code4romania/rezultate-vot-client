@@ -78,7 +78,6 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           <Switch>
             <Route path={`/elections/${ballotId}/turnout`}>
               <TurnoutTab
-                meta={meta}
                 ballot={shownData}
                 scope={shownScope}
                 onScopeChange={onScopeChange}
