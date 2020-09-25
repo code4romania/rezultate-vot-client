@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Header.module.scss";
-import { ReactComponent as Logo } from "../assets/logo.svg";
+import { Logo } from "./Logo";
 
 export const Header: React.FC = () => {
   return (
     <>
       <div className={classes.root}>
-        <Logo className={classes.logo} />
+        <Logo className={classes.logo} homeLink/>
         <div className={classes.separator} />
         <NavLink to="/elections" className={classes.navLink} activeClassName={classes.navLinkActive}>
           Istoric alegeri
