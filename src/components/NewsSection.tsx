@@ -2,12 +2,10 @@ import { DivBodyLarge, ElectionNewsFeed, ElectionNewsSection, Heading2 } from "@
 import React, { FC } from "react";
 import { Separator } from "./Separator";
 import classes from "./NewsSection.module.scss";
-import { EmbedButton } from "./EmbedButton";
 
-export const NewsSection: FC<{ feed: ElectionNewsFeed; ballotId?: number }> = ({ feed, ballotId }) => {
+export const NewsSection: FC<{ feed: ElectionNewsFeed; ballotId?: number }> = ({ feed }) => {
   return (
     <div className={classes.news}>
-      <EmbedButton path={`${ballotId}/news`} />
       <Heading2 className={classes.heading}>
         <div className={classes.liveIcon} />
         Live newsfeed
