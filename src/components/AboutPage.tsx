@@ -9,7 +9,7 @@ import bogdanVoicu from "../assets/bogdanVoicu.png";
 import romeoAsiminei from "../assets/romeoAsiminei.png";
 import bogdanIvanel from "../assets/bogdanIvanel.jpg";
 import mirceaKivu from "../assets/mirceaKivu.jpg";
-import mariaKrause from "../assets/mariaKrause.jpg";
+import mariaKrause from "../assets/mariaKrause.png";
 import { Footer } from "./Footer";
 
 export const AboutPage: React.FC = () => (
