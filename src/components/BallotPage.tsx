@@ -63,6 +63,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
     <>
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
+      <Label>Selectează de aici nivelul de vizualizare a datelor.</Label>
       <BallotTabs
         ballotId={ballotId}
         indicators={
@@ -168,6 +169,7 @@ export const BallotPage: React.FC = withToastProvider(() => {
     <>
       {!ballotList.hasData && ballotList.loading && <Loader />}
       <ErrorMessage error={ballotList.error} sideMargins />
+
       {ballotList.data && <SplitView ballots={ballotList.data} />}
     </>
   );

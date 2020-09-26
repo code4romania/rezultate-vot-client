@@ -13,7 +13,7 @@ export const NewsSection: FC<{ feed: ElectionNewsFeed; ballotId?: number }> = ({
       <Separator className={classes.separator} />
       <DivBodyLarge className={classes.label}>
         Aici vezi ultimele știri și informații relevante acestei alegeri, culese din surse de încredere de către echipa
-        Code4Romania.
+        Code for Romania.
       </DivBodyLarge>
       <ElectionNewsSection className={classes.feed} feed={feed} ballotId={ballotId} />
     </div>
