@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { Separator } from "./Separator";
 import classes from "./NewsSection.module.scss";
 
-export const NewsSection: FC<{ feed: ElectionNewsFeed; ballotId?: number }> = ({ feed }) => {
+export const NewsSection: FC<{ feed: ElectionNewsFeed; ballotId?: number }> = ({ feed, ballotId }) => {
   return (
     <div className={classes.news}>
       <Heading2 className={classes.heading}>
@@ -15,7 +15,7 @@ export const NewsSection: FC<{ feed: ElectionNewsFeed; ballotId?: number }> = ({
         Aici vezi ultimele știri și informații relevante acestei alegeri, culese din surse de încredere de către echipa
         Code4Romania.
       </DivBodyLarge>
-      <ElectionNewsSection className={classes.feed} feed={feed} />
+      <ElectionNewsSection className={classes.feed} feed={feed} ballotId={ballotId} />
     </div>
   );
 };
