@@ -1,6 +1,7 @@
 import { Body } from "@code4ro/reusable-components";
 import { faFacebook, faGithub, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import React from "react";
 
 import { ReactComponent as Code4RomaniaGray } from "../assets/code4romania-gray.svg";
@@ -45,6 +46,9 @@ export const Footer: React.FC = () => (
     <Code4RomaniaGray className={classes.logo} />
 
     <div className={classes.links}>
+      <Link className={classes.link} to="/cookiepolicy">
+        Politica de Cookies
+      </Link>
       {links.map(({ href, title }, index) => (
         <a
           // eslint-disable-next-line react/no-array-index-key
