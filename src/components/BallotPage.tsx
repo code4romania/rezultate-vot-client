@@ -61,6 +61,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
+      <div className={classes.updateInterval}>Datele se actualizeaza odata la 60 secunde.</div>
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <BallotTabs
