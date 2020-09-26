@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
         <Logo className={classes.logo} homeLink />
         <div className={classes.separator} />
         <NavLink to="/elections" className={classes.navLink} activeClassName={classes.navLinkActive}>
-          Istoric alegeri
+          Date alegeri
         </NavLink>
         <NavLink to="/about" exact className={classes.navLink} activeClassName={classes.navLinkActive}>
           Despre proiect
