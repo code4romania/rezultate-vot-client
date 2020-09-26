@@ -165,12 +165,12 @@ export const AboutPage: React.FC = () => (
         <div className={classes.expertDescription}>
           <Heading3>Mircea Kivu</Heading3>
           <p>
-            Mircea Kivu sociology, master în Demografie şi Ştiinţe Sociale la Ecole des Hautes Etudes en Sciences
-            Sociales – Paris. Este cunoscut ca autor al mai multor lucrǎri şi articole de sociologie, principalul sǎu
-            domeniu de expertizǎ fiind cercetarea opiniei publice. Din 1992, a deţinut funcţii de conducere în mai multe
-            institute de cercetare (director de cercetare, apoi CEO la IMAS Marketing şi Sondaje, vice-preşedinte pentru
-            Cercetare despre Cercetare la Ipsos Interactive Services, director de operaţiuni la Mercury Research).). A
-            fost membru al Corpului expertilor electorali din România.
+            Mircea Kivu sociology, master în Demografie și științe Sociale la Ecole des Hautes Etudes en Sciences
+            Sociales – Paris. Este cunoscut ca autor al mai multor lucrări și articole de sociologie, principalul său
+            domeniu de expertiză fiind cercetarea opiniei publice. Din 1992, a deținut funcții de conducere în mai multe
+            institute de cercetare (director de cercetare, apoi CEO la IMAS Marketing și Sondaje, vice-președinte pentru
+            Cercetare despre Cercetare la Ipsos Interactive Services, director de operațiuni la Mercury Research).). A
+            fost membru al Corpului expertilor electorali din România.
           </p>
         </div>
       </div>
