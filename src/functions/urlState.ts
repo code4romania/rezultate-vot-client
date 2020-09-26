@@ -88,6 +88,11 @@ export const useBallotIdFromRoute = (): number | null => {
   return toNumber(match.params.ballotId);
 };
 
+export const useNewsItemIdFromRoute = (): number | null => {
+  const match = useRouteMatch<{ newsId: string }>();
+  return toNumber(match.params.newsId);
+};
+
 export const useBallotFromRoute = (): APIRequestState<ElectionBallot> => {
   const ballotId = useBallotIdFromRoute();
   const scope = useCompleteScopeFromSearch();

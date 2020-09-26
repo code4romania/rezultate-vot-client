@@ -5,6 +5,7 @@ import { BallotPage } from "./BallotPage";
 import { EmbedWrapper } from "./EmbedWrapper";
 import { Header } from "./Header";
 import { NewsWidget } from "./NewsWidget";
+import { NewsCardWidget } from "./NewsCardWidget";
 import { ObservationsWidget } from "./ObservationsWidget";
 import { ResultsWidget } from "./ResultsWidget";
 import { TurnoutWidget } from "./TurnoutWidget";
@@ -36,6 +37,9 @@ export const AppLayout: React.FC = () => {
           <Switch>
             <Route exact path="/">
               <Redirect to="/elections" />
+            </Route>
+            <Route path="/feed/:ballotId/news/:newsId">
+              <NewsCardWidget />
             </Route>
             <Route path="/about" exact>
               <AboutPage />
