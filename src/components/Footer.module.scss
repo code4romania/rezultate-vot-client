@@ -29,6 +29,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .link {
@@ -79,4 +80,13 @@
   text-align: center;
   color: #ffffff;
   line-height: 1.5;
+}
+
+.donateButton {
+  border: none;
+  background: #6fcf97;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 20px;
+  cursor: pointer;
 }

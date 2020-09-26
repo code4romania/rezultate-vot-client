@@ -19,11 +19,6 @@ const links = [
     title: "Implică-te",
     href: "https://code4.ro/ro/implica-te/",
   },
-  {
-    title: "Donează",
-    href: "https://code4.ro/ro/doneaza/",
-    cta: true,
-  },
 ];
 
 const socialButtons = [
@@ -50,11 +45,11 @@ export const Footer: React.FC = () => (
     <Code4RomaniaGray className={classes.logo} />
 
     <div className={classes.links}>
-      {links.map(({ href, title, cta }, index) => (
+      {links.map(({ href, title }, index) => (
         <a
           // eslint-disable-next-line react/no-array-index-key
           key={index}
-          className={mergeClasses(classes.link, cta && classes.linkCta)}
+          className={classes.link}
           href={href}
           target="_blank"
           rel="noreferrer noopener"
@@ -62,6 +57,17 @@ export const Footer: React.FC = () => (
           {title}
         </a>
       ))}
+      <a
+        key="__doneaza"
+        className={classes.link}
+        href="https://code4.ro/ro/doneaza/"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <button type="button" className={classes.donateButton}>
+          Donează
+        </button>
+      </a>
     </div>
 
     <div className={classes.separator} />
@@ -82,7 +88,7 @@ export const Footer: React.FC = () => (
     </div>
 
     <Body className={classes.disclaimer}>
-      © 2019 Code for Romania.
+      © 2020 Code for Romania.
       <br />
       Organizație neguvernamentală independentă, neafiliată politic și apolitică.
     </Body>

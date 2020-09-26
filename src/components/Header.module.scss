@@ -64,3 +64,13 @@
   height: $header-height;
   width: 100%;
 }
+
+.donateButton {
+  border: none;
+  background: black;
+  color: #ffcc00;
+  border-radius: 5px;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}

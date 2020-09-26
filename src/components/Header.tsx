@@ -16,7 +16,9 @@ export const Header: React.FC = () => {
           Despre proiect
         </NavLink>
         <a href="https://code4.ro/ro/doneaza/" target="_blank" rel="noreferrer noopener" className={classes.navLink}>
-          Donează
+          <button type="button" className={classes.donateButton}>
+            Donează
+          </button>
         </a>
       </div>
       <div className={classes.contentPadding} />
