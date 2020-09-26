@@ -9,6 +9,7 @@ import bogdanVoicu from "../assets/bogdanVoicu.png";
 import romeoAsiminei from "../assets/romeoAsiminei.png";
 import bogdanIvanel from "../assets/bogdanIvanel.jpg";
 import mirceaKivu from "../assets/mirceaKivu.jpg";
+import mariaKrause from "../assets/mariaKrause.jpg";
 import { Footer } from "./Footer";
 
 export const AboutPage: React.FC = () => (
@@ -111,6 +112,23 @@ export const AboutPage: React.FC = () => (
             prezidențiale din România, 2009 (coord. cu Mircea Comșa și Andrei Gheorghiță, publicat la Presa Universitară
             Clujeană), precum și articole în jurnale precum European Politics and Society, Problems of Post-Communism,
             sau European Political Science Review.
+          </p>
+        </div>
+      </div>
+      <div className={classes.expertWrapper}>
+        <div className={classes.expertImage}>
+          <img src={mariaKrause} alt="" />
+        </div>
+        <div className={classes.expertDescription}>
+          <Heading3>Maria Krause</Heading3>
+          <p>
+            Maria Krause este expert electoral cu o experienţă de peste 14 ani în observarea alegerilor în ţară şi în
+            străinătate. A participat la misiuni de observarea alegerilor ale Oficiului OSCE pentru Instituţii
+            Democratice şi Drepturile Omului (OSCE/ODIHR) în Kirghizstan, Kazakhstan, Macedonia de Nord, Serbia,
+            Moldova, Letonia, Bulgaria, Ucraina, Albania, Muntenegru şi la misiuni organizate de Carter Center în Nepal,
+            Mozambic şi Guyana. În România a făcut parte în 2014 dintre coordonatorii proiectelor organizate de Expert
+            Forum pentru observarea alegerilor europarlamentare şi de Centrul pentru Resurse Civice pentru observarea
+            alegerilor prezidenţiale, iar din 2016 participă ca expert electoral la proiectul FiecareVot.
           </p>
         </div>
       </div>
