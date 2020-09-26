@@ -77,3 +77,7 @@ $timeline-sidebar-margin: 1rem;
   height: calc(100vh - #{$header-height});
   width: 100vw;
 }
+
+.updateInterval {
+  text-align: end;
+}

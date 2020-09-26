@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useMemo, useState } from "react";
 import {
+  DivLabel,
   ElectionBallotMeta,
   ElectionScopeIncomplete,
   electionScopeIsComplete,
@@ -61,6 +62,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
+      <DivLabel className={classes.updateInterval}>Datele se actualizează odată  la 60 secunde.</DivLabel>
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <Label>Selectează de aici nivelul de vizualizare a datelor.</Label>
