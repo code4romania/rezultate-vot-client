@@ -26,6 +26,22 @@ type Props = {
 };
 
 export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange, loading }) => {
+  if (
+    (scope && meta && scope.type === "national" && meta.type === "mayor") ||
+    (scope && meta && scope.type === "county" && meta.type === "mayor") ||
+    (scope && meta && scope.type === "national" && meta.type === "countycouncil_president") ||
+    (scope && meta && scope.type === "county" && meta.type === "local_council") ||
+    (scope && meta && scope.type === "national" && meta.type === "local_council") ||
+    (scope && meta && scope.type === "national" && meta.type === "countycouncil")
+  ) {
+    return (
+      <>
+        <div>
+          <p>The data is coming soon</p>
+        </div>
+      </>
+    );
+  }
   return (
     <EmbedButtonWrapper>
       {meta && <EmbedButton path={`${meta.ballotId}/results`} />}
