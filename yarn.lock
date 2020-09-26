@@ -1156,7 +1156,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@code4ro/reusable-components@0.1.30":
+"@code4ro/reusable-components@0.1.31":
   version "0.1.30"
   resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.30.tgz#78585774208c1e33b3efe3da6da2452bdb9aaad9"
   integrity sha512-0yOvKLVrxTyP3AtlQ3Xalouhyo0QMk77EnCfdHqe6s2TbgaSZNUkUpi6pVCfT/8AU+ObArgBzS0oMMFNszXftw==
