@@ -8,6 +8,7 @@ import florinFesnic from "../assets/florinFesnic.png";
 import bogdanVoicu from "../assets/bogdanVoicu.png";
 import romeoAsiminei from "../assets/romeoAsiminei.png";
 import bogdanIvanel from "../assets/bogdanIvanel.jpg";
+import mirceaKivu from "../assets/mirceaKivu.jpg";
 import { Footer } from "./Footer";
 
 export const AboutPage: React.FC = () => (
@@ -154,6 +155,22 @@ export const AboutPage: React.FC = () => (
             civic tech la nivel global, cu peste 1.700 de voluntari de diverse specializări profesionale și care
             lucrează simultan pe 11 fusuri orare diferite, fiind a doua cea mai mare comunitate de civic tech din lume,
             după Code for America.
+          </p>
+        </div>
+      </div>
+      <div className={classes.expertWrapper}>
+        <div className={classes.expertImage}>
+          <img src={mirceaKivu} alt="" />
+        </div>
+        <div className={classes.expertDescription}>
+          <Heading3>Mircea Kivu</Heading3>
+          <p>
+            Mircea Kivu sociology, master în Demografie şi Ştiinţe Sociale la Ecole des Hautes Etudes en Sciences
+            Sociales – Paris. Este cunoscut ca autor al mai multor lucrǎri şi articole de sociologie, principalul sǎu
+            domeniu de expertizǎ fiind cercetarea opiniei publice. Din 1992, a deţinut funcţii de conducere în mai multe
+            institute de cercetare (director de cercetare, apoi CEO la IMAS Marketing şi Sondaje, vice-preşedinte pentru
+            Cercetare despre Cercetare la Ipsos Interactive Services, director de operaţiuni la Mercury Research).). A
+            fost membru al Corpului expertilor electorali din România.
           </p>
         </div>
       </div>
