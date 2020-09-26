@@ -79,6 +79,25 @@
   }
 }
 
+.fsPubWrapper {
+  display: flex;
+  align-items: center;
+
+  .fsPubImage {
+    flex: 0 1 200px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .fsPubDescription {
+    font-weight: bold;
+    flex: 1;
+  }
+}
+
 .lastList {
   margin-bottom: 15px;
 }
+
+

@@ -10,6 +10,7 @@ import romeoAsiminei from "../assets/romeoAsiminei.png";
 import bogdanIvanel from "../assets/bogdanIvanel.jpg";
 import mirceaKivu from "../assets/mirceaKivu.jpg";
 import mariaKrause from "../assets/mariaKrause.png";
+import fsPubImg from "../assets/fsPub.png";
 import { Footer } from "./Footer";
 
 export const AboutPage: React.FC = () => (
@@ -89,12 +90,16 @@ export const AboutPage: React.FC = () => (
         </li>
       </ul>
 
+      <div className={classes.fsPubWrapper}>
+        <div className={classes.fsPubDescription}>
+          Începând cu alegerile locale din 2020, conținutul bogat în date al platformei Rezultate Vot este completat de o secțiune de comentarii și analize live, care vor pune în context datele de prezență / rezultatele afișate în colaborare cu Facultatea de Științe Politice a Universității din București.
+        </div>
+        <div className={classes.fsPubImage}>
+          <img src={fsPubImg} alt="FSPUB logo" />
+        </div>
+      </div>
+
       <Heading1>Experți</Heading1>
-      <p>
-        Începând cu alegerile locale din 2020, conținutul bogat în date al platformei Rezultate Vot este completat de o
-        secțiune de comentarii și analize live, care vor pune în context datele de prezență / rezultatele afișate.
-        Specialiștii care vor oferi analize în timp real sunt:
-      </p>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
           <img src={claudiuTufis} alt="" />
