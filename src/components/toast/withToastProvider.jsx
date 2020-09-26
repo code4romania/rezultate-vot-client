@@ -1,23 +1,23 @@
-import React, {useContext, useState} from 'react';
-import {ToastContext} from './context';
-import {createPortal} from 'react-dom';
-import {Toast} from './toast';
-import './toast.css';
+import React, { useContext, useState } from "react";
+import { createPortal } from "react-dom";
+import { ToastContext } from "./context";
+import { Toast } from "./toast";
+import "./toast.css";
 
 export function withToastProvider(Component) {
   return (props) => {
     const [toasts, setToasts] = useState([]);
 
-    const add = content => {
-      const id = + Date.now();
-      setToasts([...toasts, {id, content}]);
+    const add = (content) => {
+      const id = +Date.now();
+      setToasts([...toasts, { id, content }]);
     };
 
-    const remove = id => setToasts(toasts.filter(e => e.id !== id));
+    const remove = (id) => setToasts(toasts.filter((e) => e.id !== id));
 
-    const providerValue = {add, remove};
+    const providerValue = { add, remove };
 
-    const toastComponents = toasts.map(t => (
+    const toastComponents = toasts.map((t) => (
       <Toast key={t.id} remove={() => remove(t.id)}>
         {t.content}
       </Toast>
@@ -27,12 +27,7 @@ export function withToastProvider(Component) {
       <ToastContext.Provider value={providerValue}>
         <Component {...props} />
 
-        {createPortal(
-          <div className="toasts-wrapper">
-            {toastComponents}
-          </div>,
-          document.body
-        )}
+        {createPortal(<div className="toasts-wrapper">{toastComponents}</div>, document.body)}
       </ToastContext.Provider>
     );
   };
@@ -40,5 +35,5 @@ export function withToastProvider(Component) {
 
 export function useToast() {
   const context = useContext(ToastContext);
-  return { add: context.add, remove: context.remove};
+  return { add: context.add, remove: context.remove };
 }
