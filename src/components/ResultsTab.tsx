@@ -28,7 +28,7 @@ type Props = {
 export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange, loading }) => {
   if (
     (scope && meta && scope.type === "national" && meta.type === "mayor") ||
-    (scope && meta && scope.type === "county" && meta.type === "mayor") ||
+    (scope && meta && scope.type === "county" && meta.type === "mayor" && scope.countyId !== 12913) ||
     (scope && meta && scope.type === "national" && meta.type === "countycouncil_president") ||
     (scope && meta && scope.type === "county" && meta.type === "local_council") ||
     (scope && meta && scope.type === "national" && meta.type === "local_council") ||
