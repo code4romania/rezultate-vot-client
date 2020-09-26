@@ -62,7 +62,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
-      <DivLabel className={classes.updateInterval}>Datele se actualizează odată  la 60 secunde.</DivLabel>
+      <DivLabel className={classes.updateInterval}>Datele se actualizează odată la 60 secunde.</DivLabel>
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
       <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
       <Label>Selectează de aici nivelul de vizualizare a datelor.</Label>

@@ -92,7 +92,9 @@ export const AboutPage: React.FC = () => (
 
       <div className={classes.fsPubWrapper}>
         <div className={classes.fsPubDescription}>
-          Începând cu alegerile locale din 2020, conținutul bogat în date al platformei Rezultate Vot este completat de o secțiune de comentarii și analize live, care vor pune în context datele de prezență / rezultatele afișate în colaborare cu Facultatea de Științe Politice a Universității din București.
+          Începând cu alegerile locale din 2020, conținutul bogat în date al platformei Rezultate Vot este completat de
+          o secțiune de comentarii și analize live, care vor pune în context datele de prezență / rezultatele afișate în
+          colaborare cu Facultatea de Științe Politice a Universității din București.
         </div>
         <div className={classes.fsPubImage}>
           <img src={fsPubImg} alt="FSPUB logo" />
