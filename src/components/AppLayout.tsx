@@ -6,6 +6,9 @@ import { Header } from "./Header";
 import { Loader } from "./Loader";
 
 const AboutPageLazy = lazy(() => import("./AboutPage").then(({ AboutPage }) => ({ default: AboutPage })));
+const CookiePolicyPageLazy = lazy(() =>
+  import("./CookiePolicyPage").then(({ CookiePolicyPage }) => ({ default: CookiePolicyPage })),
+);
 const BallotPageLazy = lazy(() => import("./BallotPage").then(({ BallotPage }) => ({ default: BallotPage })));
 const NewsWidgetLazy = lazy(() => import("./NewsWidget").then(({ NewsWidget }) => ({ default: NewsWidget })));
 const ResultsWidgetLazy = lazy(() =>
@@ -57,6 +60,9 @@ export const AppLayout: React.FC = () => {
               </Route>
               <Route path="/about" exact>
                 <AboutPageLazy />
+              </Route>
+              <Route path="/cookiepolicy" exact>
+                <CookiePolicyPageLazy />
               </Route>
               <Route path="/elections/:ballotId">
                 <BallotPageLazy />
