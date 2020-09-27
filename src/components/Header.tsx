@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import classes from "./Header.module.scss";
 import { Logo } from "./Logo";
 
@@ -12,6 +12,15 @@ export const Header: React.FC = () => {
         <NavLink to="/elections" className={classes.navLink} activeClassName={classes.navLinkActive}>
           Date alegeri
         </NavLink>
+        <Link
+          to={{
+            pathname: "/elections/95/turnout",
+            state: { fromHeader: true },
+          }}
+          className={classes.navLink}
+        >
+          Live Newsfeed
+        </Link>
         <NavLink to="/about" exact className={classes.navLink} activeClassName={classes.navLinkActive}>
           Despre proiect
         </NavLink>
