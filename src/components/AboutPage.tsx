@@ -10,7 +10,7 @@ import romeoAsiminei from "../assets/romeoAsiminei.png";
 import bogdanIvanel from "../assets/bogdanIvanel.jpg";
 import mirceaKivu from "../assets/mirceaKivu.jpg";
 import mariaKrause from "../assets/mariaKrause.png";
-import dragosCostache from "../assets/dragosCostache.png";
+import dragosCostache from "../assets/dragosCostache.jpg";
 import fsPubImg from "../assets/fsPub.png";
 import { Footer } from "./Footer";
 
