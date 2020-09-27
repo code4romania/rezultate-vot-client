@@ -44,6 +44,16 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
     }
     return <ElectionResultsDiscreteTableSection candidates={ballot?.results?.candidates} heading={heading} />;
   }
+  if (meta && (meta?.ballotId === 95 || meta.ballotId === 96 || meta.ballotId === 97 || meta.ballotId === 98)) {
+    return (
+      <>
+        <Separator />
+        <Heading2 className={classes.processHeading}>
+          Rezultatele alegerilor se vor afișa începând cu ora 21.00
+        </Heading2>
+      </>
+    );
+  }
   return (
     <EmbedButtonWrapper>
       {meta && <EmbedButton path={`${meta.ballotId}/results`} />}
