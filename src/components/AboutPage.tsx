@@ -10,6 +10,7 @@ import romeoAsiminei from "../assets/romeoAsiminei.png";
 import bogdanIvanel from "../assets/bogdanIvanel.jpg";
 import mirceaKivu from "../assets/mirceaKivu.jpg";
 import mariaKrause from "../assets/mariaKrause.png";
+import dragosCostache from "../assets/dragosCostache.png";
 import fsPubImg from "../assets/fsPub.png";
 import { Footer } from "./Footer";
 
@@ -180,6 +181,23 @@ export const AboutPage: React.FC = () => (
             civic tech la nivel global, cu peste 1.700 de voluntari de diverse specializări profesionale și care
             lucrează simultan pe 11 fusuri orare diferite, fiind a doua cea mai mare comunitate de civic tech din lume,
             după Code for America.
+          </p>
+        </div>
+      </div>
+      <div className={classes.expertWrapper}>
+        <div className={classes.expertImage}>
+          <img src={dragosCostache} alt="" />
+        </div>
+        <div className={classes.expertDescription}>
+          <Heading3>Dragoș Costache</Heading3>
+          <p>
+            Cu experiență considerabilă atât în scris cât și în sectorul non-profit, Dragoș a devenit unul dintre
+            membrii de bază ai Code for Romania în ultimii ani. Licențiat în științe politice (Universitatea din
+            București) și cu două mastere în sociologie (Universiteit van Amsterdam) și antropologie socială (Stockholms
+            Universitet) Dragoș are o experiență de teren foarte eclectică, de la politici de gen la discriminare
+            digitală. Dragoș a lucrat în journalism, atât pentru publicații locale cât și pentru publicații
+            internaționale dar și în marketing și comunicare, sectorul public sau ca project manager în sectorul
+            non-profit.
           </p>
         </div>
       </div>
