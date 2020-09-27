@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useCallback, useMemo, useState, useRef, useLayoutEffect } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import {
   DivLabel,
   ElectionBallotMeta,
@@ -32,9 +32,8 @@ import classes from "./BallotPage.module.scss";
 import { withToastProvider } from "./toast/withToastProvider";
 
 const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> = ({ ballotId, onOpenSidebar }) => {
-  const location: any = useLocation();
+  const location = useLocation();
   const history = useHistory();
-  const newsFeedRef: any = useRef();
 
   const [scope, completeness] = useMemo(() => {
     const s = scopeFromSearch(location.search);
@@ -60,13 +59,6 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   const shownData = completeness.complete ? ballotData.data : null;
   const shownScope = (completeness.complete && ballotData.data?.scope) || scope;
-
-  useLayoutEffect(() => {
-    if (location.state.fromHeader && shownData?.electionNews && shownData.electionNews.length > 0) {
-      history.replace({ ...location, state: {} });
-      newsFeedRef.current.scrollIntoView();
-    }
-  });
 
   return (
     <>
@@ -114,11 +106,9 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
           </Switch>
         )}
       </BallotTabs>
-      <div id="news" ref={newsFeedRef}>
-        {shownData?.electionNews && shownData.electionNews.length > 0 && (
-          <NewsSection feed={shownData.electionNews} ballotId={ballotId} />
-        )}
-      </div>
+      {shownData?.electionNews && shownData.electionNews.length > 0 && (
+        <NewsSection feed={shownData.electionNews} ballotId={ballotId} />
+      )}
     </>
   );
 };
