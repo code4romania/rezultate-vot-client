@@ -62,7 +62,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
   const shownScope = (completeness.complete && ballotData.data?.scope) || scope;
 
   useLayoutEffect(() => {
-    if (location.state && location.state.fromHeader && shownData?.electionNews && shownData.electionNews.length > 0) {
+    if (location.state.fromHeader && shownData?.electionNews && shownData.electionNews.length > 0) {
       history.replace({ ...location, state: {} });
       newsFeedRef.current.scrollIntoView();
     }
