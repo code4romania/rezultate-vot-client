@@ -50,6 +50,15 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
 
   return (
     <EmbedButtonWrapper>
+      {meta && meta.live && (
+        <>
+          <Separator />
+          <Heading2 className={classes.processHeading}>
+            Graficele arată procentele obținute de fiecare candidat pe măsură ce sunt numărate voturile. Datele se
+            actualizează constant până la momentul afisării rezultatelor finale.
+          </Heading2>
+        </>
+      )}
       {meta && <EmbedButton path={`${meta.ballotId}/results`} />}
       <ElectionResultsSummarySection
         api={api}
