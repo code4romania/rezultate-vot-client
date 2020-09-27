@@ -8,6 +8,7 @@ import {
   ElectionResultsTableSection,
   ElectionScopeIncomplete,
   ElectionScopeIncompleteResolved,
+  ElectionResultsDiscreteTableSection,
   Heading2,
 } from "@code4ro/reusable-components";
 import React from "react";
@@ -34,13 +35,14 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
     (scope && meta && scope.type === "national" && meta.type === "local_council") ||
     (scope && meta && scope.type === "national" && meta.type === "countycouncil")
   ) {
-    return (
-      <>
-        <div>
-          <p>The data is coming soon</p>
-        </div>
-      </>
-    );
+    let heading = "Nr Voturi";
+    if (scope.type === "national" && meta.type === "countycouncil_president") {
+      heading = "Nr președinți de consiliu județean";
+    }
+    if ((scope.type === "national" && meta.type === "mayor") || (scope.type === "county" && meta.type === "mayor")) {
+      heading = "Nr Primari";
+    }
+    return <ElectionResultsDiscreteTableSection candidates={ballot?.results?.candidates} heading={heading} />;
   }
   return (
     <EmbedButtonWrapper>

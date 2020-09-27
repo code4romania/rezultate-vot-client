@@ -40,9 +40,7 @@ export const BallotTitle: React.FC<Props> = ({ meta, onOpenSidebar }) => {
             {meta.title} {year}
           </Heading2>
           {meta.ballot && <DivLabel>{meta.ballot}</DivLabel>}
-          {meta.subtitle && (
-            <DivLabel className={meta.ballot ? classes.spacedSubtitle : undefined}>{meta.subtitle}</DivLabel>
-          )}
+          {meta.subtitle && <div className={classes.metaSubtitleTag}>{meta.subtitle}</div>}
         </div>
       </div>
       <Separator />
