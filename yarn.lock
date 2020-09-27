@@ -1156,10 +1156,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@code4ro/reusable-components@0.1.38":
-  version "0.1.38"
-  resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.38.tgz#6a0ee9c474dab42b46806c7b807db8effa0dd739"
-  integrity sha512-suGDWZopq3IQkNQSzCJG9skSGfqTylT5liGG4vjl0jZrpHpzTWVpfpeuqGD/05HryAn0zNKX/ieu+TnUykE89Q==
+"@code4ro/reusable-components@0.1.40":
+  version "0.1.40"
+  resolved "https://registry.yarnpkg.com/@code4ro/reusable-components/-/reusable-components-0.1.40.tgz#ee4b8be9989a87b0aeda55168f5f302175a1d0bf"
+  integrity sha512-KLN+Bk3AG+G6mHTftvTna8Ei8vdYAeZLj+ObZ2rPDIXlC871v0BmMT+2T0/QTvqZbyriobumn/ebYwRwoAr99A==
   dependencies:
     color "^3.1.2"
     date-fns "^2.16.1"
