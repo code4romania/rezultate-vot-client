@@ -27,16 +27,6 @@ type Props = {
 };
 
 export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeChange, loading }) => {
-  if (meta && (meta?.ballotId === 95 || meta.ballotId === 96 || meta.ballotId === 97 || meta.ballotId === 98)) {
-    return (
-      <>
-        <Separator />
-        <Heading2 className={classes.processHeading}>
-          Rezultatele alegerilor se vor afișa începând cu ora 21.00
-        </Heading2>
-      </>
-    );
-  }
   if (
     (scope && meta && scope.type === "national" && meta.type === "mayor") ||
     (scope && meta && scope.type === "county" && meta.type === "mayor" && scope.countyId !== 12913) ||
@@ -60,6 +50,15 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
 
   return (
     <EmbedButtonWrapper>
+      {meta && meta.live && (
+        <>
+          <Separator />
+          <Heading2 className={classes.processHeading}>
+            Graficele arată procentele obținute de fiecare candidat pe măsură ce sunt numărate voturile. Datele se
+            actualizează constant până la momentul afisării rezultatelor finale.
+          </Heading2>
+        </>
+      )}
       {meta && <EmbedButton path={`${meta.ballotId}/results`} />}
       <ElectionResultsSummarySection
         api={api}
