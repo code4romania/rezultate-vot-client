@@ -31,11 +31,6 @@ export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators, mo
       <div className={classes.tabs}>
         <TabNavLink to={`${baseUrl}/${ballotId}/turnout`}>Prezența la vot</TabNavLink>
         <TabNavLink to={`${baseUrl}/${ballotId}/results`}>Rezultate vot</TabNavLink>
-        {ballotId === 95 && (
-          <TabNavLink to={`${baseUrl}/${ballotId}/results?division=county&countyId=12913`}>
-            Primarul Capitalei
-          </TabNavLink>
-        )}
         <div className={classes.separator} />
         <div className={classes.indicators}>{indicators}</div>
       </div>
