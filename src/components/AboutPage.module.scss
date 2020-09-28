@@ -100,4 +100,12 @@
   margin-bottom: 15px;
 }
 
+@media (max-width: 550px) {
+  .expertWrapper {
+    display: block;
 
+    .expertImage {
+      padding-right: 0;
+    }
+  }
+}

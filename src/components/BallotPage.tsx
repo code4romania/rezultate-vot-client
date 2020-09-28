@@ -70,6 +70,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
       <Label>Selectează de aici nivelul de vizualizare a datelor.</Label>
       <BallotTabs
         ballotId={ballotId}
+        hasCapitalMayor={meta?.type === "mayor"}
         indicators={
           <div className={classes.indicators}>
             {ballotData.data && ballotData.loading && <Ellipsis color="#ffcc00" size={30} />}
