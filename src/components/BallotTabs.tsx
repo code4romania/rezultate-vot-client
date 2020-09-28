@@ -4,11 +4,14 @@ import { Link, Route } from "react-router-dom";
 
 import classes from "./BallotTabs.module.scss";
 
-const TabNavLink = ({ children, to }: PropsWithChildren<{ to: string }>) => (
+const TabNavLink = ({ children, to, search }: PropsWithChildren<{ to: string; search?: string }>) => (
   <Route path={to}>
     {({ match }) => (
       <Link
-        to={(location) => ({ ...location, pathname: to })}
+        to={(location) => {
+          const queryString = search || location.search;
+          return { ...location, pathname: to, search: queryString };
+        }}
         className={mergeClasses(classes.navLink, match && classes.navLinkActive)}
       >
         {children}
@@ -31,6 +34,11 @@ export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators, mo
       <div className={classes.tabs}>
         <TabNavLink to={`${baseUrl}/${ballotId}/turnout`}>Prezența la vot</TabNavLink>
         <TabNavLink to={`${baseUrl}/${ballotId}/results`}>Rezultate vot</TabNavLink>
+        {ballotId === 95 && (
+          <TabNavLink to={`${baseUrl}/${ballotId}/results`} search="?division=county&countyId=12913">
+            Primarul Capitalei
+          </TabNavLink>
+        )}
         <div className={classes.separator} />
         <div className={classes.indicators}>{indicators}</div>
       </div>
