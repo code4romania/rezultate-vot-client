@@ -10,6 +10,7 @@ import {
   ElectionScopeIncompleteResolved,
   ElectionResultsDiscreteTableSection,
   Heading2,
+  DivBody,
 } from "@code4ro/reusable-components";
 import React from "react";
 import { Separator } from "./Separator";
@@ -52,11 +53,11 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
     <EmbedButtonWrapper>
       {meta && meta.live && (
         <>
-          <Separator />
-          <Heading2 className={classes.processHeading}>
+          <DivBody className={classes.processHeading}>
             Graficele arată procentele obținute de fiecare candidat pe măsură ce sunt numărate voturile. Datele se
             actualizează constant până la momentul afisării rezultatelor finale.
-          </Heading2>
+          </DivBody>
+          <Separator />
         </>
       )}
       {meta && <EmbedButton path={`${meta.ballotId}/results`} />}
