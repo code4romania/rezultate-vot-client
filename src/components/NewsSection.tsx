@@ -5,7 +5,7 @@ import classes from "./NewsSection.module.scss";
 
 export const NewsSection: FC<{ feed: ElectionNewsFeed; ballotId?: number }> = ({ feed, ballotId }) => {
   return (
-    <div className={classes.news}>
+    <div id="live-newsfeed" className={classes.news}>
       <Heading2 className={classes.heading}>
         <div className={classes.liveIcon} />
         Live newsfeed
