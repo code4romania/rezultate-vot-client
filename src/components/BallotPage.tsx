@@ -48,7 +48,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
   );
 
   const electionApi = useElectionApi();
-  const scopePickerData = useElectionScopePickerApi(electionApi, scope);
+  const scopePickerData = useElectionScopePickerApi(electionApi, scope, ballotId);
   const ballotData = useBallotData(electionApi, completeness.complete ? ballotId : null, completeness.complete);
 
   const ballotList = useBallotList();

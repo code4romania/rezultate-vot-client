@@ -46,9 +46,6 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
     return <ElectionResultsDiscreteTableSection candidates={ballot?.results?.candidates} heading={heading} />;
   }
 
-  const tableHead = { tHead1: "", tHead2: "Mand.", tHead3: "Voturi", tHead4: "%", tHead5: "" };
-  tableHead.tHead1 = meta?.type === "referendum" ? "Optiuni" : "Partid";
-
   return (
     <EmbedButtonWrapper>
       {meta && meta.live && (
@@ -69,7 +66,6 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
         results={ballot?.results}
         separator={<Separator />}
         loader={loading && <Loader />}
-        table={tableHead}
       />
       {ballot?.results && (
         <>
