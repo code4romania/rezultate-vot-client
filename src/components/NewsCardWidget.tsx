@@ -12,7 +12,7 @@ export const NewsCardWidget: React.FC = () => {
 
   if (!data) return null;
 
-  const newsItem: any = data?.electionNews?.find((n: any) => n.id === Number(newsItemId));
+  const newsItem = data?.electionNews?.find((n) => n.id === Number(newsItemId));
 
   if (!newsItem) return null;
 
@@ -24,7 +24,7 @@ export const NewsCardWidget: React.FC = () => {
         <Helmet>
           <title>{newsItem.title}</title>
           <meta name="description" content={newsItem.body} />
-          <meta property="og:title" content={newsItem.title} />
+          <meta property="og:title" content={newsItem.title || "Articol"} />
         </Helmet>
         <ElectionNewsCard key={newsItemId} news={newsItem} feedLink={feedLink} />
         <NavLink
