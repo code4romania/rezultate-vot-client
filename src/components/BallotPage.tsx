@@ -3,10 +3,12 @@ import React, { useCallback, useMemo, useState } from "react";
 import {
   DivLabel,
   ElectionBallotMeta,
+  electionScopeCoerceToCompatible,
   ElectionScopeIncomplete,
   electionScopeIsComplete,
   ElectionScopePicker,
   ElectionTimeline,
+  electionTypeCompatibleScopes,
   Label,
   mergeClasses,
   useBallotData,
@@ -60,13 +62,29 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
   const shownData = completeness.complete ? ballotData.data : null;
   const shownScope = (completeness.complete && ballotData.data?.scope) || scope;
 
+  const electionType = meta?.type;
+  const compatibleScopes = electionType ? electionTypeCompatibleScopes(electionType) : undefined;
+
   return (
     <>
       {meta && meta?.live && (
         <DivLabel className={classes.updateInterval}>Datele se actualizează o dată la 60 secunde.</DivLabel>
       )}
       {meta && <BallotTitle meta={meta} onOpenSidebar={onOpenSidebar} />}
-      <ElectionScopePicker value={scope} onChange={onScopeChange} apiData={scopePickerData} />
+      <ElectionScopePicker
+        value={scope}
+        onChange={onScopeChange}
+        apiData={scopePickerData}
+        compatibleScopes={compatibleScopes}
+      />
+      {compatibleScopes && compatibleScopes[scope.type] === false && (
+        <Redirect
+          to={{
+            ...location,
+            search: prependQuestionMark(searchFromScope(electionScopeCoerceToCompatible(scope, compatibleScopes))),
+          }}
+        />
+      )}
       <Label>Selectează de aici nivelul de vizualizare a datelor.</Label>
       <BallotTabs
         ballotId={ballotId}
