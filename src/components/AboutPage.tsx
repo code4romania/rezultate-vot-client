@@ -166,15 +166,15 @@ export const AboutPage: React.FC = () => (
           <p>
             Romeo Asiminei este doctor în sociologie (teza cu titlul Mecanisme electorale. Alegeri, alegători şi
             comportamente de vot în România) şi conferențiar universitar în cadrul Departamentului de Sociologie şi
-            Asistenţă Socială, Facultatea de Filosofie şi Ştiinţe Social-Politice, Universitatea "Alexandru Ioan Cuza"
-            din Iaşi. Din septembrie 2016 este Directorul acestui department. A fost bursier postdoctoral al Academiei
-            Române cu tema Diaspora românească şi construcţia deciziei de vot. Principalele sale domenii de interes
+            Asistenţă Socială, Facultatea de Filosofie şi Ştiinţe Social-Politice, Universitatea `&quot;`Alexandru Ioan
+            Cuza`&quot;` din Iaşi. Din septembrie 2016 este Directorul acestui department. A fost bursier postdoctoral
+            al Academiei Române cu tema Diaspora românească şi construcţia deciziei de vot. Principalele sale domenii de
             vizează sociologia electorală, comunicarea politică, sociologia opinei publice, metodologia sociologică,
             economia socială și calitatea vieții. A publicat volumul Sociologie electorală. Alegeri, alegători şi
             comportamente de vot (volum finanţat de Ministerul Educaţiei Naţionale în cadrul competiţiei naţionale
             pentru subvenţionarea literaturii tehnico ştiinţifice pentru anul 2013) şi este coautor al volumului Atlasul
-            electoral al României 1990 – 2009 (volum premiat cu distincţia "Cea mai bună carte de ştiinţă a anului" la
-            Gala Bun de Tipar 2014). Este autor al mai multor rapoarte de cercetare, capitole de cărţi şi studii
+            electoral al României 1990 – 2009 (volum premiat cu distincţia `&quot;`Cea mai bună carte de ştiinţă a
+            anului`&quot;` la Gala Bun de Tipar 2014). Este autor al mai multor rapoarte de cercetare, capitole de cărţi
             publicate în reviste de specialitate din țară și străinătate. Are o vastă experienţă ca cercetător în
             numeroase proiecte cu finanţare publică şi private, internațională și națională.
           </p>
