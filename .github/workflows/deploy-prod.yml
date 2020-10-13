@@ -1,8 +1,8 @@
-name: Build and Deploy Staging
+name: Build and Deploy Production
 on:
   push:
     branches:
-      - develop
+      - master
 
 env:
   PATHS: "/*"
@@ -11,9 +11,9 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
   REACT_APP_HEREMAPS_API_KEY: ${{ secrets.HEREMAPS_API_KEY }}
-  PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
-  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_STAGING }}
-  DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID_STAGING }}
+  PUBLIC_URL: ${{ secrets.PUBLIC_URL_PROD }}
+  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_PROD }}
+  DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID_PROD }}
 
 
 jobs:
@@ -41,10 +41,10 @@ jobs:
         working-directory: ${{env.working-directory}}
         run: yarn run build
 
-      - name: Deploy to S3
+      - name: Deploy to S3 Production
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
           args: --acl public-read --delete
 
-      - name: Invalidate Cloudfront
+      - name: Invalidate Cloudfront Production
         uses: muratiger/invalidate-cloudfront-and-wait-for-completion-action@master
