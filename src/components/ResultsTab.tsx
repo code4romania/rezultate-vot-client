@@ -31,13 +31,13 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
   if (
     (scope && meta && scope.type === "national" && meta.type === "mayor") ||
     (scope && meta && scope.type === "county" && meta.type === "mayor" && scope.countyId !== 12913) ||
-    (scope && meta && scope.type === "national" && meta.type === "countycouncil_president") ||
+    (scope && meta && scope.type === "national" && meta.type === "county_council_president") ||
     (scope && meta && scope.type === "county" && meta.type === "local_council") ||
     (scope && meta && scope.type === "national" && meta.type === "local_council") ||
-    (scope && meta && scope.type === "national" && meta.type === "countycouncil")
+    (scope && meta && scope.type === "national" && meta.type === "county_council")
   ) {
     let heading = "Nr Voturi";
-    if (scope.type === "national" && meta.type === "countycouncil_president") {
+    if (scope.type === "national" && meta.type === "county_council_president") {
       heading = "Nr președinți de consiliu județean";
     }
     if ((scope.type === "national" && meta.type === "mayor") || (scope.type === "county" && meta.type === "mayor")) {
@@ -45,9 +45,6 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
     }
     return <ElectionResultsDiscreteTableSection candidates={ballot?.results?.candidates} heading={heading} />;
   }
-
-  const tableHead = { tHead1: "", tHead2: "Mand.", tHead3: "Voturi", tHead4: "%", tHead5: "" };
-  tableHead.tHead1 = meta?.type === "referendum" ? "Optiuni" : "Partid";
 
   return (
     <EmbedButtonWrapper>
@@ -69,7 +66,6 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
         results={ballot?.results}
         separator={<Separator />}
         loader={loading && <Loader />}
-        table={tableHead}
       />
       {ballot?.results && (
         <>
