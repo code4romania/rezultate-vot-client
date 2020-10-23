@@ -14,7 +14,7 @@ env:
   PUBLIC_URL: ${{ secrets.PUBLIC_URL_PROD }}
   AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_PROD }}
   DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID_PROD }}
-
+  REACT_APP_ELECTION_API_URL: ${{ secrets.API_URL_PROD }}
 
 jobs:
   deploy:
