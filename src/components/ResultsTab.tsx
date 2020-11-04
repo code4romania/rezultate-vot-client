@@ -8,7 +8,6 @@ import {
   ElectionResultsTableSection,
   ElectionScopeIncomplete,
   ElectionScopeIncompleteResolved,
-  ElectionResultsDiscreteTableSection,
   Heading2,
   DivBody,
 } from "@code4ro/reusable-components";
