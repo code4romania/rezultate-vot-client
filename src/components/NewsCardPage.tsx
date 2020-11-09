@@ -2,11 +2,13 @@ import { ElectionNewsCard } from "@code4ro/reusable-components";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
-import { useBallotFromRoute, useNewsItemIdFromRoute } from "../functions/urlState";
 
+import { useBallotFromRoute, useNewsItemIdFromRoute } from "../functions/urlState";
+import { NewsEmbedButton } from "./NewsEmbedButton";
+import { withToastProvider } from "./toast/withToastProvider";
 import classes from "./NewsCardPage.module.scss";
 
-export const NewsCardPage: React.FC = () => {
+export const NewsCardPage: React.FC = withToastProvider(() => {
   const { data } = useBallotFromRoute();
   const newsItemId = useNewsItemIdFromRoute();
 
@@ -26,7 +28,12 @@ export const NewsCardPage: React.FC = () => {
           <meta name="description" content={newsItem.body} />
           <meta property="og:title" content={newsItem.title || "Articol"} />
         </Helmet>
-        <ElectionNewsCard key={newsItemId} news={newsItem} feedLink={feedLink} />
+        <ElectionNewsCard
+          key={newsItemId}
+          news={newsItem}
+          feedLink={feedLink}
+          footerLeft={<NewsEmbedButton ballotId={data.meta.ballotId} newsItemId={newsItem.id} />}
+        />
         <NavLink
           to={`/elections/${data.meta.ballotId}`}
           className={classes.navLink}
@@ -40,4 +47,4 @@ export const NewsCardPage: React.FC = () => {
     )) ||
     null
   );
-};
+});
