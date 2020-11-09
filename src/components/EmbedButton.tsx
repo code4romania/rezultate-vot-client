@@ -1,3 +1,4 @@
+import { mergeClasses } from "@code4ro/reusable-components";
 import React, { ReactNode, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -11,7 +12,7 @@ export const EmbedButtonWrapper: React.FC<{ children: ReactNode }> = ({ children
   return <div className={classes.wrapper}>{children}</div>;
 };
 
-export const EmbedButton: React.FC<{ path: string }> = ({ path }) => {
+export const EmbedButton: React.FC<{ path: string; className?: string }> = ({ path, className }) => {
   const toast = useToast();
   const location = useLocation();
   const scope = useCompleteScopeFromSearch();
@@ -32,7 +33,12 @@ export const EmbedButton: React.FC<{ path: string }> = ({ path }) => {
   }
 
   return (
-    <button type="button" title="Copiază cod de embed" className={classes.embedBtn} onClick={onCopyEmbedCode}>
+    <button
+      type="button"
+      title="Copiază cod de embed"
+      className={mergeClasses(classes.embedBtn, className)}
+      onClick={onCopyEmbedCode}
+    >
       <img src={embedImage} alt="embed" className="fab-icon" />
     </button>
   );

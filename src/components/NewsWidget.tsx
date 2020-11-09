@@ -7,5 +7,5 @@ export const NewsWidget: React.FC = () => {
 
   if (!data) return null;
 
-  return (data && data.electionNews && <NewsSection feed={data?.electionNews} />) || null;
+  return (data && data.electionNews && <NewsSection ballotId={data.meta.ballotId} feed={data.electionNews} />) || null;
 };
