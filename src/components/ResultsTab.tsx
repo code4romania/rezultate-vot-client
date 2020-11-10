@@ -64,7 +64,7 @@ export const ResultsTab: React.FC<Props> = ({ api, meta, ballot, scope, onScopeC
       {ballot?.results && meta && (
         <>
           <Separator className={classes.tablesSeparator} />
-          <ElectionResultsTableSection meta={meta} results={ballot.results} />
+          <ElectionResultsTableSection meta={meta} results={ballot.results} scope={scope} />
         </>
       )}
     </EmbedButtonWrapper>
