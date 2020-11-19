@@ -20,6 +20,7 @@ const TurnoutWidgetLazy = lazy(() =>
 const ObservationsWidgetLazy = lazy(() =>
   import("./ObservationsWidget").then(({ ObservationsWidget }) => ({ default: ObservationsWidget })),
 );
+const NewsCardPageLazy = lazy(() => import("./NewsCardPage").then(({ NewsCardPage }) => ({ default: NewsCardPage })));
 const NewsCardWidgetLazy = lazy(() =>
   import("./NewsCardWidget").then(({ NewsCardWidget }) => ({ default: NewsCardWidget })),
 );
@@ -41,6 +42,9 @@ export const AppLayout: React.FC = () => {
                 <Route path="/embed/:ballotId/results">
                   <ResultsWidgetLazy />
                 </Route>
+                <Route path="/embed/:ballotId/news/:newsId">
+                  <NewsCardWidgetLazy />
+                </Route>
                 <Route path="/embed/:ballotId/news">
                   <NewsWidgetLazy />
                 </Route>
@@ -56,7 +60,7 @@ export const AppLayout: React.FC = () => {
                 <Redirect to="/elections" />
               </Route>
               <Route path="/feed/:ballotId/news/:newsId">
-                <NewsCardWidgetLazy />
+                <NewsCardPageLazy />
               </Route>
               <Route path="/about" exact>
                 <AboutPageLazy />
