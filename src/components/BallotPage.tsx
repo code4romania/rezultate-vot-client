@@ -26,6 +26,7 @@ import { useElectionApi } from "./ElectionAPIContext";
 import { BallotTabs } from "./BallotTabs";
 import { TurnoutTab } from "./TurnoutTab";
 import { ResultsTab } from "./ResultsTab";
+import { CandidatesTab } from "./CandidatesTab";
 import { NewsSection } from "./NewsSection";
 import { BallotTitle } from "./BallotTitle";
 import { Footer } from "./Footer";
@@ -64,6 +65,8 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   const electionType = meta?.type;
   const compatibleScopes = electionType ? electionTypeCompatibleScopes(electionType) : undefined;
+  const showCandidatesTab =
+    (electionType === "house" || electionType === "senate") && scope.type === "county" && !!scope.countyId;
 
   return (
     <>
@@ -89,6 +92,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
       <BallotTabs
         ballotId={ballotId}
         hasCapitalMayor={meta?.type === "mayor"}
+        hasCandidates={showCandidatesTab}
         indicators={
           <div className={classes.indicators}>
             {ballotData.data && ballotData.loading && <Ellipsis color="#ffcc00" size={30} />}
@@ -119,6 +123,18 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
                 loading={!shownData && ballotData.loading}
               />
             </Route>
+            {showCandidatesTab && (
+              <Route path={`/elections/${ballotId}/candidates`}>
+                <CandidatesTab
+                  api={electionApi}
+                  meta={meta}
+                  ballot={shownData}
+                  scope={shownScope}
+                  onScopeChange={onScopeChange}
+                  loading={!shownData && ballotData.loading}
+                />
+              </Route>
+            )}
             <Route>
               <Redirect to={`/elections/${ballotId}/turnout`} />
             </Route>

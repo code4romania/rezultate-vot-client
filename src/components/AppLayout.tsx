@@ -48,6 +48,9 @@ export const AppLayout: React.FC = () => {
                 <Route path="/embed/:ballotId/news">
                   <NewsWidgetLazy />
                 </Route>
+                <Route path="/embed/:ballotId/candidates">
+                  <ResultsWidgetLazy />
+                </Route>
               </Switch>
             </Suspense>
           </EmbedWrapper>
