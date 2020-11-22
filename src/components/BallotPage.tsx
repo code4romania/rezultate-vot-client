@@ -66,8 +66,12 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
   const electionType = meta?.type;
   const compatibleScopes = electionType ? electionTypeCompatibleScopes(electionType) : undefined;
   const isLive = meta?.live;
-  const hasCountyId = scope?.type === "county" && !!scope?.countyId;
-  const showCandidatesTab = !!((electionType === "house" || electionType === "senate") && isLive && hasCountyId);
+  const scopeType = scope?.type;
+  const showCandidatesTab = !!(
+    isLive &&
+    (electionType === "house" || electionType === "senate") &&
+    (scopeType === "county" || scopeType === "national")
+  );
 
   return (
     <>
@@ -130,7 +134,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
               </Route>
             )}
             <Route>
-              <Redirect to={`/elections/${ballotId}/turnout`} />
+              <Redirect to={`/elections/${ballotId}/turnout${prependQuestionMark(searchFromScope(shownScope))}`} />
             </Route>
           </Switch>
         )}

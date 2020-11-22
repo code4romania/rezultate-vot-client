@@ -4,6 +4,7 @@ import {
   ElectionScopeIncompleteResolved,
   ElectionCandidatesTableSection,
   useApiResponse,
+  DivBody,
 } from "@code4ro/reusable-components";
 import React from "react";
 import { Loader } from "./Loader";
@@ -27,6 +28,15 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
       discardPreviousData: true,
     };
   }, [api, ballotId, scopeType, countyId]);
+
+  if (!countyId) {
+    return (
+      <DivBody>
+        Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropdwn de mai sus ce judet
+        te intereseaza.
+      </DivBody>
+    );
+  }
 
   if (loading) {
     return <Loader />;
