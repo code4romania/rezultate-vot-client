@@ -24,6 +24,9 @@ const NewsCardPageLazy = lazy(() => import("./NewsCardPage").then(({ NewsCardPag
 const NewsCardWidgetLazy = lazy(() =>
   import("./NewsCardWidget").then(({ NewsCardWidget }) => ({ default: NewsCardWidget })),
 );
+const CandidatesWidgetLazy = lazy(() =>
+  import("./CandidatesWidget").then(({ CandidatesWidget }) => ({ default: CandidatesWidget })),
+);
 
 export const AppLayout: React.FC = () => {
   return (
@@ -47,6 +50,9 @@ export const AppLayout: React.FC = () => {
                 </Route>
                 <Route path="/embed/:ballotId/news">
                   <NewsWidgetLazy />
+                </Route>
+                <Route path="/embed/:ballotId/candidates">
+                  <CandidatesWidgetLazy />
                 </Route>
               </Switch>
             </Suspense>
