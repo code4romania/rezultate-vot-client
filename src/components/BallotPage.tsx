@@ -65,8 +65,9 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   const electionType = meta?.type;
   const compatibleScopes = electionType ? electionTypeCompatibleScopes(electionType) : undefined;
-  const showCandidatesTab =
-    (electionType === "house" || electionType === "senate") && scope.type === "county" && !!scope.countyId;
+  const isLive = meta?.live;
+  const hasCountyId = scope?.type === "county" && !!scope?.countyId;
+  const showCandidatesTab = !!((electionType === "house" || electionType === "senate") && isLive && hasCountyId);
 
   return (
     <>
@@ -125,14 +126,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
             </Route>
             {showCandidatesTab && (
               <Route path={`/elections/${ballotId}/candidates`}>
-                <CandidatesTab
-                  api={electionApi}
-                  meta={meta}
-                  ballot={shownData}
-                  scope={shownScope}
-                  onScopeChange={onScopeChange}
-                  loading={!shownData && ballotData.loading}
-                />
+                <CandidatesTab api={electionApi} meta={meta} scope={shownScope} />
               </Route>
             )}
             <Route>
