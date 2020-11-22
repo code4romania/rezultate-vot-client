@@ -9,6 +9,7 @@ import {
 import React from "react";
 import { Loader } from "./Loader";
 import { EmbedButton, EmbedButtonWrapper } from "./EmbedButton";
+import classes from "./CandidatesTab.module.scss";
 
 type Props = {
   api: ElectionAPI;
@@ -31,7 +32,7 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
 
   if (!countyId) {
     return (
-      <DivBody>
+      <DivBody className={classes.selectCountyIdMessage}>
         Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropdwn de mai sus ce judet
         te intereseaza.
       </DivBody>
