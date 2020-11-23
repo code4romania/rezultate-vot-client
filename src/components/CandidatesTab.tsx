@@ -1,7 +1,7 @@
 import {
   ElectionAPI,
   ElectionBallotMeta,
-  ElectionScopeIncompleteResolved,
+  ElectionScopeIncomplete,
   ElectionCandidatesTableSection,
   useApiResponse,
   DivBody,
@@ -14,7 +14,7 @@ import classes from "./CandidatesTab.module.scss";
 type Props = {
   api: ElectionAPI;
   meta?: ElectionBallotMeta | null;
-  scope: ElectionScopeIncompleteResolved;
+  scope: ElectionScopeIncomplete;
 };
 
 export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
@@ -25,12 +25,12 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
 
   const { data, loading } = useApiResponse(() => {
     return {
-      invocation: (api && ballotId != null && countyId && api.getCandidates(ballotId, 2, countyId)) || undefined,
+      invocation: (api && ballotId != null && api.getCandidates(ballotId, scope)) || undefined,
       discardPreviousData: true,
     };
   }, [api, ballotId, scopeType, countyId]);
 
-  if (!countyId) {
+  if (!(countyId || scopeType === "diaspora")) {
     return (
       <DivBody className={classes.selectCountyIdMessage}>
         Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropown de mai sus ce judet
