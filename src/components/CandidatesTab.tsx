@@ -33,7 +33,7 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
   if (!countyId) {
     return (
       <DivBody className={classes.selectCountyIdMessage}>
-        Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropdwn de mai sus ce judet
+        Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropown de mai sus ce judet
         te intereseaza.
       </DivBody>
     );
