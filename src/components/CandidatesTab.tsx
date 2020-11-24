@@ -23,14 +23,29 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
   const scopeType = scope?.type;
   const countyId = scope?.type === "county" && scope?.countyId;
 
+  const candidatesScope = () => {
+    if (scope.type === "locality" && !!scope.countyId) {
+      return {
+        type: "county",
+        countyId: scope.countyId,
+      };
+    }
+    if (scope.type === "diaspora_country") {
+      return {
+        type: "diaspora",
+      };
+    }
+    return scope;
+  };
+
   const { data, loading } = useApiResponse(() => {
     return {
-      invocation: (api && ballotId != null && api.getCandidates(ballotId, scope)) || undefined,
+      invocation: (api && ballotId != null && api.getCandidates(ballotId, candidatesScope())) || undefined,
       discardPreviousData: true,
     };
   }, [api, ballotId, scopeType, countyId]);
 
-  if (!(countyId || scopeType === "diaspora")) {
+  if (scopeType === "national" || (scopeType === "county" && !countyId)) {
     return (
       <DivBody className={classes.selectCountyIdMessage}>
         Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropown de mai sus ce judet
