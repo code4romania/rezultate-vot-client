@@ -17,30 +17,30 @@ type Props = {
   scope: ElectionScopeIncomplete;
 };
 
+const candidatesScope = (scope: ElectionScopeIncomplete) => {
+  if (scope.type === "locality" && !!scope.countyId) {
+    return {
+      type: "county",
+      countyId: scope.countyId,
+    };
+  }
+  if (scope.type === "diaspora_country") {
+    return {
+      type: "diaspora",
+    };
+  }
+  return scope;
+};
+
 export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
   const ballotName = meta?.ballot;
   const ballotId = meta?.ballotId;
   const scopeType = scope?.type;
   const countyId = scope?.type === "county" && scope?.countyId;
 
-  const candidatesScope = () => {
-    if (scope.type === "locality" && !!scope.countyId) {
-      return {
-        type: "county",
-        countyId: scope.countyId,
-      };
-    }
-    if (scope.type === "diaspora_country") {
-      return {
-        type: "diaspora",
-      };
-    }
-    return scope;
-  };
-
   const { data, loading } = useApiResponse(() => {
     return {
-      invocation: (api && ballotId != null && api.getCandidates(ballotId, candidatesScope())) || undefined,
+      invocation: (api && ballotId != null && api.getCandidates(ballotId, candidatesScope(scope))) || undefined,
       discardPreviousData: true,
     };
   }, [api, ballotId, scopeType, countyId]);
