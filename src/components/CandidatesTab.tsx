@@ -17,7 +17,7 @@ type Props = {
   scope: ElectionScopeIncomplete;
 };
 
-const candidatesScope = (scope: ElectionScopeIncomplete) => {
+const candidatesScope = (scope: any) => {
   if (scope.type === "locality" && !!scope.countyId) {
     return {
       type: "county",
@@ -64,7 +64,7 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
 
       {data && ballotName && (
         <>
-          <ElectionCandidatesTableSection heading="Partide" ballot={ballotName} parties={data} />
+          <ElectionCandidatesTableSection heading="Partide" parties={data} />
         </>
       )}
     </EmbedButtonWrapper>
