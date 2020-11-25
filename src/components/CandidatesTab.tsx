@@ -1,7 +1,7 @@
 import {
   ElectionAPI,
   ElectionBallotMeta,
-  ElectionScopeIncompleteResolved,
+  ElectionScopeIncomplete,
   ElectionCandidatesTableSection,
   useApiResponse,
   DivBody,
@@ -14,7 +14,22 @@ import classes from "./CandidatesTab.module.scss";
 type Props = {
   api: ElectionAPI;
   meta?: ElectionBallotMeta | null;
-  scope: ElectionScopeIncompleteResolved;
+  scope: ElectionScopeIncomplete;
+};
+
+const candidatesScope = (scope: any) => {
+  if (scope.type === "locality" && !!scope.countyId) {
+    return {
+      type: "county",
+      countyId: scope.countyId,
+    };
+  }
+  if (scope.type === "diaspora_country") {
+    return {
+      type: "diaspora",
+    };
+  }
+  return scope;
 };
 
 export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
@@ -25,15 +40,15 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
 
   const { data, loading } = useApiResponse(() => {
     return {
-      invocation: (api && ballotId != null && countyId && api.getCandidates(ballotId, 2, countyId)) || undefined,
+      invocation: (api && ballotId != null && api.getCandidates(ballotId, candidatesScope(scope))) || undefined,
       discardPreviousData: true,
     };
   }, [api, ballotId, scopeType, countyId]);
 
-  if (!countyId) {
+  if (scopeType === "national" || (scopeType === "county" && !countyId)) {
     return (
       <DivBody className={classes.selectCountyIdMessage}>
-        Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropdwn de mai sus ce judet
+        Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropown de mai sus ce judet
         te intereseaza.
       </DivBody>
     );
@@ -49,7 +64,7 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
 
       {data && ballotName && (
         <>
-          <ElectionCandidatesTableSection heading="Partide" ballot={ballotName} parties={data} />
+          <ElectionCandidatesTableSection heading="Partide" parties={data} />
         </>
       )}
     </EmbedButtonWrapper>
