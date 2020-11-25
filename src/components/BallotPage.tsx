@@ -64,9 +64,11 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
   const shownScope = (completeness.complete && ballotData.data?.scope) || scope;
 
   const electionType = meta?.type;
-  const compatibleScopes = electionType ? electionTypeCompatibleScopes(electionType) : undefined;
   const isLive = meta?.live;
+  const isCandidatesTab = location.pathname.includes("candidates");
   const showCandidatesTab = !!(isLive && (electionType === "house" || electionType === "senate"));
+  const electionComptibleScope = electionType ? electionTypeCompatibleScopes(electionType) : undefined;
+  const compatibleScopes = isCandidatesTab ? { locality: false } : electionComptibleScope;
 
   return (
     <>
