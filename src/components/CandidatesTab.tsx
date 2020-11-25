@@ -17,7 +17,7 @@ type Props = {
   scope: ElectionScopeIncomplete;
 };
 
-const candidatesScope = (scope: any) => {
+const parseCandidatesScope = (scope: any) => {
   if (scope.type === "locality" && !!scope.countyId) {
     return {
       type: "county",
@@ -37,19 +37,20 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
   const ballotId = meta?.ballotId;
   const scopeType = scope?.type;
   const countyId = (scope?.type === "county" || scope?.type === "locality") && scope?.countyId;
+  const candidatesScope = parseCandidatesScope(scope);
 
   const { data, loading } = useApiResponse(() => {
     return {
-      invocation: (api && ballotId != null && api.getCandidates(ballotId, candidatesScope(scope))) || undefined,
+      invocation: (api && ballotId != null && api.getCandidates(ballotId, candidatesScope)) || undefined,
       discardPreviousData: true,
     };
-  }, [api, ballotId, scopeType, countyId]);
+  }, [api, ballotId, candidatesScope.type, candidatesScope.countyId]);
 
-  if (scopeType === "national" || (scopeType === "county" && !countyId)) {
+  if (!(scopeType === "diaspora" || scopeType === "diaspora_country") && !countyId) {
     return (
       <DivBody className={classes.selectCountyIdMessage}>
-        Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropown de mai sus ce judet
-        te intereseaza.
+        Pentru a vedea listele de candidati la nivelul fiecarui judet selecteaza cu ajutorul dropdown de mai sus ce
+        judet te intereseaza.
       </DivBody>
     );
   }
