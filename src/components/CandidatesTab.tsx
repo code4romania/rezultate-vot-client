@@ -36,7 +36,7 @@ export const CandidatesTab: React.FC<Props> = ({ api, meta, scope }) => {
   const ballotName = meta?.ballot;
   const ballotId = meta?.ballotId;
   const scopeType = scope?.type;
-  const countyId = scope?.type === "county" && scope?.countyId;
+  const countyId = (scope?.type === "county" || scope?.type === "locality") && scope?.countyId;
 
   const { data, loading } = useApiResponse(() => {
     return {
