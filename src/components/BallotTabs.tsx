@@ -30,12 +30,20 @@ type Props = {
   children: ReactNode;
   indicators?: ReactNode;
   hasCapitalMayor?: boolean;
+  hasCandidates?: boolean;
   mode?: string;
 };
 
 const bucharestCountyId = 12913;
 
-export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators, mode, hasCapitalMayor }) => {
+export const BallotTabs: React.FC<Props> = ({
+  ballotId,
+  children,
+  indicators,
+  mode,
+  hasCapitalMayor,
+  hasCandidates,
+}) => {
   const baseUrl = `/${mode || "elections"}`;
   const scope = useCompleteScopeFromSearch();
   const routeMatchesCapital = scope?.type === "county" && scope.countyId === bucharestCountyId;
@@ -55,6 +63,7 @@ export const BallotTabs: React.FC<Props> = ({ ballotId, children, indicators, mo
             Primarul Capitalei
           </TabNavLink>
         )}
+        {hasCandidates && <TabNavLink to={`${baseUrl}/${ballotId}/candidates`}>Candidați</TabNavLink>}
         <div className={classes.separator} />
         <div className={classes.indicators}>{indicators}</div>
       </div>

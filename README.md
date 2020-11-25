@@ -4,7 +4,11 @@
 
 Insert bullets description of the project if available.
 
+<<<<<<< HEAD
+[See the project live](https://rezultatevot.ro)
+=======
 [See the project live](https://rezultatevot.ro/)
+>>>>>>> master
 
 Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
 
@@ -14,7 +18,7 @@ Give a short introduction of your project. Let this section explain the objectiv
 
 This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](https://github.com/code4romania/.github/blob/master/CONTRIBUTING.md). If you want to make any change to this repository, please **make a fork first**.
 
-Help us out by testing this project in the [staging environment](INSERT_LINK_HERE). If you see something that doesn't quite work the way you expect it to, open an Issue. Make sure to describe what you _expect to happen_ and _what is actually happening_ in detail.
+Help us out by testing this project in the [staging environment](https://staging.rezultatevot.ro). If you see something that doesn't quite work the way you expect it to, open an Issue. Make sure to describe what you _expect to happen_ and _what is actually happening_ in detail.
 
 If you would like to suggest new functionality, open an Issue and mark it as a __[Feature request]__. Please be specific about why you think this functionality will be of use. If you can, please include some visual description of what you would like the UI to look like, if you are suggesting new UI elements. 
 
