@@ -13,9 +13,11 @@ import mariaKrause from "../assets/mariaKrause.png";
 import dragosCostache from "../assets/dragosCostache.jpg";
 import fsPubImg from "../assets/fsPub.png";
 import { Footer } from "./Footer";
+import { Banner } from "./Banner";
 
 export const AboutPage: React.FC = () => (
   <>
+    <Banner />
     <DivBody className={classes.root}>
       <Heading1>Despre Proiect</Heading1>
       <p>

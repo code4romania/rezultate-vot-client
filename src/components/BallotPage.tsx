@@ -30,6 +30,7 @@ import { CandidatesTab } from "./CandidatesTab";
 import { NewsSection } from "./NewsSection";
 import { BallotTitle } from "./BallotTitle";
 import { Footer } from "./Footer";
+import { Banner } from "./Banner";
 
 import classes from "./BallotPage.module.scss";
 import { withToastProvider } from "./toast/withToastProvider";
@@ -72,6 +73,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
+      <Banner />
       {meta && meta?.live && (
         <DivLabel className={classes.updateInterval}>Datele se actualizează o dată la 60 secunde.</DivLabel>
       )}
