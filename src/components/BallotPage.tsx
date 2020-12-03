@@ -73,7 +73,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
-      <Banner />
+      <Banner className={classes.banner} />
       {meta && meta?.live && (
         <DivLabel className={classes.updateInterval}>Datele se actualizează o dată la 60 secunde.</DivLabel>
       )}
