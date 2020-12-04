@@ -1,14 +1,16 @@
 import React from "react";
-
+import { mergeClasses } from "@code4ro/reusable-components";
 import classes from "./Banner.module.scss";
 
-export const Banner: React.FC = () => {
+type Props = {
+  className?: string | null;
+};
+
+export const Banner: React.FC<Props> = ({ className }: Props) => {
   return (
-    <div className={classes.root}>
+    <div className={mergeClasses(classes.root, className)}>
       <p>
-        Rezultate Vot este doar una dintre soluțiile proiectate și construite pro bono de voluntarii Code for Romania.
-      </p>
-      <p>
+        Rezultate Vot este doar una dintre soluțiile proiectate și construite pro bono de voluntarii Code for Romania.{" "}
         <b>
           Trimite „PUTEM” prin SMS la <a href="sms://8864?body=PUTEM">8864</a>
         </b>{" "}
@@ -20,4 +22,8 @@ export const Banner: React.FC = () => {
       </p>
     </div>
   );
+};
+
+Banner.defaultProps = {
+  className: null,
 };
