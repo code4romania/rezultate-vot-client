@@ -104,7 +104,7 @@ export const AboutPage: React.FC = () => (
         </div>
       </div>
 
-      <Heading1>Experți</Heading1>
+      <Heading1>Experții</Heading1>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
           <img src={claudiuTufis} alt="" />
