@@ -17,6 +17,7 @@ type Props = {
   scope: ElectionScopeIncomplete;
 };
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 const parseCandidatesScope = (scope: any) => {
   if (scope.type === "locality" && !!scope.countyId) {
     return {
