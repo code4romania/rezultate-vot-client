@@ -9,6 +9,8 @@ import {
   ElectionScopePicker,
   ElectionTimeline,
   electionTypeCompatibleScopes,
+  Heading1,
+  Heading3,
   Label,
   mergeClasses,
   useBallotData,
@@ -17,6 +19,8 @@ import {
 } from "@code4ro/reusable-components";
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
+
+import screenLarge from "../assets/screenLarge.png";
 
 import { useBallotList } from "./BallotListProvider";
 import { ErrorMessage } from "./ErrorMessage";
@@ -73,7 +77,12 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
-      <Banner className={classes.banner} />
+      <Heading1>Momentan avem niște dificultăți tehnice în preluarea și prelucrarea datelor.</Heading1>
+      <Heading3>Revenim curând.</Heading3>
+      <p>Cele mai recente date agregate le găsiți în poza de mai jos.</p>
+      <img src={screenLarge} alt="" className="img-fluid d-large" />
+      <style>{".img-fluid { width: 100%; margin: 40px 0; } "}</style>
+      {/* <Banner className={classes.banner} />
       {meta && meta?.live && (
         <DivLabel className={classes.updateInterval}>Datele se actualizează o dată la 60 secunde.</DivLabel>
       )}
@@ -140,7 +149,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
       </BallotTabs>
       {shownData?.electionNews && shownData.electionNews.length > 0 && (
         <NewsSection feed={shownData.electionNews} ballotId={ballotId} />
-      )}
+      )} */}
     </>
   );
 };

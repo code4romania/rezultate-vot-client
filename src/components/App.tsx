@@ -5,6 +5,8 @@ import {
   HereMapsAPIKeyProvider,
   ElectionMapOverlayURLContext,
   electionMapOverlayUrl,
+  Heading1,
+  Heading2,
 } from "@code4ro/reusable-components";
 import { mockElectionAPI } from "@code4ro/reusable-components/dist/es/mocks";
 import { ElectionAPIContext } from "./ElectionAPIContext";
@@ -16,9 +18,6 @@ const electionApi = process.env.REACT_APP_ELECTION_API_MOCKS
   : makeElectionApi({
       apiUrl: process.env.REACT_APP_ELECTION_API_URL,
     });
-
-// NOT OK :)
-window.location.href = "https://staging.rezultatevot.ro/";
 
 export const App: React.FC = () => {
   return (
