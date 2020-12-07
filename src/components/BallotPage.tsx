@@ -78,9 +78,9 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
-      <Heading1>Momentan avem niște dificultăți tehnice în preluarea și prelucrarea datelor.</Heading1>
+      <Heading1>Momentan întâmpinăm o serie de dificultăți tehnice în preluarea și prelucrarea datelor.</Heading1>
       <Heading3>Revenim curând.</Heading3>
-      <p>Cele mai recente date agregate le găsiți în poza de mai jos.</p>
+      <p>Cele mai recente date agregate pot fi vizualizate în imaginea de mai jos.</p>
       <img src={screenLarge} alt="" className="img-fluid d-large" />
       <style>{".img-fluid { width: 100%; margin: 40px 0; } "}</style>
       {/* <Banner className={classes.banner} />
