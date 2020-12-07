@@ -5,8 +5,6 @@ import {
   HereMapsAPIKeyProvider,
   ElectionMapOverlayURLContext,
   electionMapOverlayUrl,
-  Heading1,
-  Heading2,
 } from "@code4ro/reusable-components";
 import { mockElectionAPI } from "@code4ro/reusable-components/dist/es/mocks";
 import { ElectionAPIContext } from "./ElectionAPIContext";

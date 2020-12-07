@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useCallback, useMemo, useState } from "react";
 import {
-  DivLabel,
+  // DivLabel,
   ElectionBallotMeta,
-  electionScopeCoerceToCompatible,
+  // electionScopeCoerceToCompatible,
   ElectionScopeIncomplete,
   electionScopeIsComplete,
-  ElectionScopePicker,
+  // ElectionScopePicker,
   ElectionTimeline,
   electionTypeCompatibleScopes,
   Heading1,

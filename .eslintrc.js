@@ -41,6 +41,5 @@ module.exports = {
     "react/prop-types": "off",
     "import/no-unresolved": "off", // TS handles this
     "react/jsx-props-no-spreading": "off",
-    "@typescript-eslint/no-unused-vars": "off",
   },
 };
