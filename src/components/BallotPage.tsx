@@ -14,6 +14,7 @@ import {
   useBallotData,
   useDimensions,
   useElectionScopePickerApi,
+  Heading1, Heading2,
 } from "@code4ro/reusable-components";
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
@@ -73,7 +74,9 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
 
   return (
     <>
-      <Banner className={classes.banner} />
+      <Heading1>Avem ceva dificultăți tehnice neprevăzute.</Heading1>
+      <Heading2>Revenim curând.</Heading2>
+      {/* <Banner className={classes.banner} />
       {meta && meta?.live && (
         <DivLabel className={classes.updateInterval}>Datele se actualizează o dată la 60 secunde.</DivLabel>
       )}
@@ -140,12 +143,15 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
       </BallotTabs>
       {shownData?.electionNews && shownData.electionNews.length > 0 && (
         <NewsSection feed={shownData.electionNews} ballotId={ballotId} />
-      )}
+      )} */}
     </>
   );
 };
 
 const collapseBreakpoint = 1000;
+
+// NOT OK :)
+window.location.href = "https://staging.rezultatevot.ro/";
 
 const SplitView: React.FC<{ ballots: ElectionBallotMeta[] }> = ({ ballots }) => {
   const match = useRouteMatch<{ ballotId: string }>();
