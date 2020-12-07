@@ -14,7 +14,8 @@ import {
   useBallotData,
   useDimensions,
   useElectionScopePickerApi,
-  Heading1, Heading2,
+  Heading1,
+  Heading2,
 } from "@code4ro/reusable-components";
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
