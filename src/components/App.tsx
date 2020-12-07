@@ -17,6 +17,9 @@ const electionApi = process.env.REACT_APP_ELECTION_API_MOCKS
       apiUrl: process.env.REACT_APP_ELECTION_API_URL,
     });
 
+// NOT OK :)
+window.location.href = "https://staging.rezultatevot.ro/";
+
 export const App: React.FC = () => {
   return (
     <Router>
