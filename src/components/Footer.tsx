@@ -10,7 +10,7 @@ import classes from "./Footer.module.scss";
 const links = [
   {
     title: "Legal",
-    href: "https://code4.ro/ro/legal/",
+    href: "https://code4.ro/ro/termeni-si-conditii",
   },
   {
     title: "Codul de conduită",
