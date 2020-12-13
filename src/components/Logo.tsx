@@ -6,10 +6,9 @@ import classes from "./Logo.module.scss";
 interface Props {
   className?: string;
   homeLink?: boolean;
-  ongLink?: boolean;
 }
 
-export const Logo: React.FC<Props> = ({ className, homeLink, ongLink }) => {
+export const Logo: React.FC<Props> = ({ className, homeLink }) => {
   return (
     <div className={[classes.logo, className].join(" ")}>
       <a className={classes.projectLogo} href={homeLink ? "/" : undefined}>
@@ -17,7 +16,7 @@ export const Logo: React.FC<Props> = ({ className, homeLink, ongLink }) => {
       </a>
       <div className={classes.code4Logo}>
         by
-        <a target="_blank" rel="noopener noreferrer" href={ongLink ? "https://code4.ro" : undefined}>
+        <a target="_blank" rel="noopener noreferrer" href="https://code4.ro">
           <Code4Logo />
         </a>
       </div>
