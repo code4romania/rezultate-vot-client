@@ -20,7 +20,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-router-hash-link": "^1.2.1",
     "date-fns": "^2.16.1",
-    "node-sass": "^4.14.1",
+    "sass": "^1.77.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
@@ -31,8 +31,8 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "format": "prettier --write src/**/*.ts{,x}",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
@@ -73,5 +73,6 @@
     "hooks": {
       "pre-push": "yarn run lint"
     }
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
