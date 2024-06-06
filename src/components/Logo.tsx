@@ -14,12 +14,6 @@ export const Logo: React.FC<Props> = ({ className, homeLink }) => {
       <a className={classes.projectLogo} href={homeLink ? "/" : undefined}>
         <ProjectLogo />
       </a>
-      <div className={classes.code4Logo}>
-        by
-        <a target="_blank" rel="noopener noreferrer" href="https://code4.ro">
-          <Code4Logo />
-        </a>
-      </div>
     </div>
   );
 };

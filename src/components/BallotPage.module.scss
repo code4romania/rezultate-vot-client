@@ -11,7 +11,7 @@ $timeline-sidebar-margin: 1rem;
   box-sizing: border-box;
   position: fixed;
   z-index: 10;
-  top: $header-height;
+  top: 10rem;
   left: 0;
   height: calc(100vh - #{$header-height});
   width: calc(min(#{$timeline-sidebar-width}, 100vw));

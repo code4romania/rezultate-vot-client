@@ -3,10 +3,17 @@ import { NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import classes from "./Header.module.scss";
 import { Logo } from "./Logo";
+import { ReactComponent as CommitGlobalLogo } from "../assets/commit-global-logo.svg";
 
 export const Header: React.FC = () => {
   return (
     <>
+      <div className={classes.brandingStrip}>
+        <a href="https://www.commitglobal.org" target="_blank" rel="noreferrer noopener">
+          <CommitGlobalLogo className={classes.commitGlobalLogo} />
+          <span>O soluție Commit Global.</span>
+        </a>
+      </div>
       <div className={classes.root}>
         <Logo className={classes.logo} homeLink />
         <div className={classes.separator} />
