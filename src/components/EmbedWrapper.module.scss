@@ -1,32 +1,53 @@
-.footer {
-  display: flex;
-  background-color: #FECB2F;
+.embeddedWidgetFooter {
+  background-color: #F2F2F2;
+  padding: 20px;
   margin-top: 10px;
-  height: 50px;
-  padding: 10px;
 
-  .logo {
-    width: 250px;
-    height: 100%;
+  @media (max-width: 768px) {
+    //height: auto;
+  }
+}
+
+.embeddedWidgetContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 425px;
+  margin: 0 auto;
+  width: 100%;
+  flex-wrap: wrap;
+
+}
+
+.projectLogo {
+  max-height: 50px;
+}
+
+.code4Logo {
+  max-height: 40px;
+}
+
+.buttonWrap {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 425px) {
+    margin-top: 10px;
+    padding-top: 10px;
+    justify-items: center;
+    width: 60%;
   }
 
-  .buttonWrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-
-    .button {
-      display: inline-block;
-      background-color: #73CE99;
-      color: #fff;
-      width: 200px;
-      line-height: 50px;
-      border-radius: 4px;
-      text-align: center;
-      margin-right: 20px;
-      text-decoration: none;
-    }
+  .button {
+    display: block;
+    width: 100%;
+    background-color: #16A34A;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 24px;
+    text-decoration: none;
+    font-weight: 500;
   }
 }
