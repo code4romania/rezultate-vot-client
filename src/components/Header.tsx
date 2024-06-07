@@ -8,11 +8,16 @@ import { ReactComponent as HamburgerMenu } from "../assets/hamburger-button.svg"
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-  const handleDocumentClick = (event: { target: any }) => {
-    // @ts-ignore
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const handleDocumentClick = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsOpen(false);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      setIsOpen(!isOpen);
     }
   };
 
@@ -58,9 +63,16 @@ export const Header: React.FC = () => {
         <Logo className={classes.logo} homeLink />
         <div className={classes.separator} />
         <div className={classes.dropdown}>
-          <button ref={dropdownRef} onClick={() => setIsOpen(!isOpen)} type="button" className={classes.dropdownButton}>
+          <div
+            ref={dropdownRef}
+            onClick={() => setIsOpen(!isOpen)}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex={0}
+            className={classes.dropdownButton}
+          >
             <HamburgerMenu />
-          </button>
+          </div>
           <div className={`${classes.dropdownOptions} ${isOpen ? classes.open : classes.closed}`}>
             <NavLink to="/elections" className={classes.navLink} activeClassName={classes.navLinkActive}>
               Date alegeri
