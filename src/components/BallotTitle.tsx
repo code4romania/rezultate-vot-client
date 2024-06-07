@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DivLabel, ElectionBallotMeta, Heading2, Heading3, mergeClasses } from "@code4ro/reusable-components";
+import { DivLabel, ElectionBallotMeta, Heading2, Heading3, mergeClasses } from "@code4romania/reusable-components";
 import { lightFormat, parseISO } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";

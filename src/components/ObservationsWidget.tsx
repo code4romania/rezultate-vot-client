@@ -1,5 +1,5 @@
 import React from "react";
-import { ElectionObservationSection } from "@code4ro/reusable-components";
+import { ElectionObservationSection } from "@code4romania/reusable-components";
 
 import { useBallotFromRoute } from "../functions/urlState";
 

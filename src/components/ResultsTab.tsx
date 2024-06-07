@@ -10,7 +10,7 @@ import {
   ElectionScopeIncompleteResolved,
   Heading2,
   DivBody,
-} from "@code4ro/reusable-components";
+} from "@code4romania/reusable-components";
 import React from "react";
 import { Separator } from "./Separator";
 import { EmbedButton, EmbedButtonWrapper } from "./EmbedButton";

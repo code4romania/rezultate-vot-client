@@ -1,4 +1,4 @@
-import { ElectionScope } from "@code4ro/reusable-components";
+import { ElectionScope } from "@code4romania/reusable-components";
 import { prependQuestionMark, searchFromScope } from "./urlState";
 
 export function makeEmbedCode(path: string, scope?: ElectionScope | null): string {

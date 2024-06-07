@@ -5,7 +5,7 @@ import {
   ElectionScopeIncomplete,
   ElectionScopeIncompleteResolved,
   ElectionTurnoutSection,
-} from "@code4ro/reusable-components";
+} from "@code4romania/reusable-components";
 import React from "react";
 import { EmbedButton, EmbedButtonWrapper } from "./EmbedButton";
 import { Loader } from "./Loader";

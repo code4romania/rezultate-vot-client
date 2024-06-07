@@ -1,4 +1,4 @@
-import { mergeClasses } from "@code4ro/reusable-components";
+import { mergeClasses } from "@code4romania/reusable-components";
 import React, { ReactNode, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 

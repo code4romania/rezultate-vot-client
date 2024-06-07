@@ -1,4 +1,4 @@
-import { ElectionNewsCard } from "@code4ro/reusable-components";
+import { ElectionNewsCard } from "@code4romania/reusable-components";
 import React from "react";
 import { useBallotFromRoute, useNewsItemIdFromRoute } from "../functions/urlState";
 

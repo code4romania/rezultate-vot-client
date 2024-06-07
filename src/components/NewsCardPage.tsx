@@ -1,4 +1,4 @@
-import { ElectionNewsCard } from "@code4ro/reusable-components";
+import { ElectionNewsCard } from "@code4romania/reusable-components";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";

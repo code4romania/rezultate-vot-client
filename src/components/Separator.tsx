@@ -1,4 +1,4 @@
-import { mergeClasses } from "@code4ro/reusable-components";
+import { mergeClasses } from "@code4romania/reusable-components";
 import React, { ComponentProps, forwardRef } from "react";
 import classes from "./Separator.module.scss";
 
