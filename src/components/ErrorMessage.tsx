@@ -1,4 +1,4 @@
-import { DivBody, mergeClasses } from "@code4ro/reusable-components";
+import { DivBody, mergeClasses } from "@code4romania/reusable-components";
 import React from "react";
 import classes from "./ErrorMessage.module.scss";
 

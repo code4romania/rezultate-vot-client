@@ -1,4 +1,4 @@
-import { DivBodyLarge, ElectionNewsFeed, ElectionNewsSection, Heading2 } from "@code4ro/reusable-components";
+import { DivBodyLarge, ElectionNewsFeed, ElectionNewsSection, Heading2 } from "@code4romania/reusable-components";
 import React, { FC, useCallback } from "react";
 import { Separator } from "./Separator";
 import classes from "./NewsSection.module.scss";

@@ -1,4 +1,4 @@
-import { DivBody, Heading1, Heading3 } from "@code4ro/reusable-components";
+import { DivBody, Heading1, Heading3 } from "@code4romania/reusable-components";
 import React from "react";
 import classes from "./AboutPage.module.scss";
 import tfsgLogo from "../assets/tfsg.png";

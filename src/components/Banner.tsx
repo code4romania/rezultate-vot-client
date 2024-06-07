@@ -1,5 +1,5 @@
 import React from "react";
-import { mergeClasses } from "@code4ro/reusable-components";
+import { mergeClasses } from "@code4romania/reusable-components";
 import classes from "./Banner.module.scss";
 
 type Props = {

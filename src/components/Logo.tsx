@@ -1,6 +1,5 @@
 import React from "react";
 import { ReactComponent as ProjectLogo } from "../assets/logo.svg";
-import { ReactComponent as Code4Logo } from "../assets/code4romania.svg";
 import classes from "./Logo.module.scss";
 
 interface Props {

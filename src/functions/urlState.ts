@@ -5,7 +5,7 @@ import {
   ElectionScopeIncomplete,
   electionScopeIsComplete,
   useBallotData,
-} from "@code4ro/reusable-components";
+} from "@code4romania/reusable-components";
 import { useMemo } from "react";
 import { useLocation, useRouteMatch } from "react-router-dom";
 import { useElectionApi } from "../components/ElectionAPIContext";
