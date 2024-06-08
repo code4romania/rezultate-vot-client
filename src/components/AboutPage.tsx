@@ -13,6 +13,7 @@ import mihaelaIvanescu from "../assets/mihaelaIvanescu.jpg";
 import costinCiobanu from "../assets/costinCiobanu.jpg";
 import daniSandu from "../assets/daniSandu.jpg";
 import darieCristea from "../assets/darieCristea.jpg";
+import barbuMateescu from "../assets/barbuMateescu.jpg";
 
 import { Footer } from "./Footer";
 import { Banner } from "./Banner";
@@ -255,7 +256,7 @@ export const AboutPage: React.FC = () => (
       </div>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
-          <img src={placeholder} alt="" />
+          <img src={barbuMateescu} alt="" />
         </div>
         <div className={classes.expertDescription}>
           <Heading3>Barbu Mateescu</Heading3>
