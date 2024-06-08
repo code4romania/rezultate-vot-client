@@ -7,7 +7,7 @@ export function makeEmbedCode(path: string, scope?: ElectionScope | null): strin
     url.search = prependQuestionMark(searchFromScope(scope));
   }
 
-  return `<!-- Google tag (gtag.js) -->
+  return `
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX2LL7DLB3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
