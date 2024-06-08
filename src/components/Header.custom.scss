@@ -1,0 +1,14 @@
+/**
+  * This is not entirely related to the header, but it was injected here for convenience.
+    This controls the HereMap component and hides the Logo and slightly adjusts the copyright.
+ */
+.H_copyright {
+  font-size: 8px !important;
+  padding: 0 !important;
+  margin-right: 0 !important;
+  right: -5px !important;
+}
+
+.H_logo {
+  display: none !important;
+}

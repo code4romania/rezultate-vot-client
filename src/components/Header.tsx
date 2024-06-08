@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import classes from "./Header.module.scss";
+import "./Header.custom.scss";
 import { Logo } from "./Logo";
 import { ReactComponent as CommitGlobalLogo } from "../assets/commit-global-logo.svg";
 import { ReactComponent as HamburgerMenu } from "../assets/hamburger-button.svg";
