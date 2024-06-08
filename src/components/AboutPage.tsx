@@ -10,6 +10,10 @@ import fsPubImg from "../assets/fsPub.png";
 import placeholder from "../assets/logo.svg";
 import calinGoina from "../assets/calinGoina.jpg";
 import mihaelaIvanescu from "../assets/mihaelaIvanescu.jpg";
+import costinCiobanu from "../assets/costinCiobanu.jpg";
+import daniSandu from "../assets/daniSandu.jpg";
+import darieCristea from "../assets/darieCristea.jpg";
+import barbuMateescu from "../assets/barbuMateescu.jpg";
 
 import { Footer } from "./Footer";
 import { Banner } from "./Banner";
@@ -188,7 +192,7 @@ export const AboutPage: React.FC = () => (
       </div>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
-          <img src={placeholder} alt="" />
+          <img src={darieCristea} alt="" />
         </div>
 
         <div className={classes.expertDescription}>
@@ -252,7 +256,7 @@ export const AboutPage: React.FC = () => (
       </div>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
-          <img src={placeholder} alt="" />
+          <img src={barbuMateescu} alt="" />
         </div>
         <div className={classes.expertDescription}>
           <Heading3>Barbu Mateescu</Heading3>
@@ -265,16 +269,21 @@ export const AboutPage: React.FC = () => (
       </div>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
-          <img src={placeholder} alt="" />
+          <img src={daniSandu} alt="" />
         </div>
         <div className={classes.expertDescription}>
           <Heading3>Dani Sandu</Heading3>
-          <p />
+          <p>
+            Dani Sandu este cercetător în științe politice și europenizare la Universitatea din Fribourg (Elveția).
+            Studiază comportamente politice și electorale în interiorul Uniunii Europene, cu o concentrare pe mișcările
+            de dreapta radicală și degradarea democrației. Dani are un doctorat în Științe Sociale de la Institutul
+            Universitar European, în Florența, cu o teză despre îndoctrinarea politică în regimurile autocratice.
+          </p>
         </div>
       </div>
       <div className={classes.expertWrapper}>
         <div className={classes.expertImage}>
-          <img src={placeholder} alt="" />
+          <img src={costinCiobanu} alt="" />
         </div>
         <div className={classes.expertDescription}>
           <Heading3>Costin Ciobanu</Heading3>
