@@ -278,7 +278,12 @@ export const AboutPage: React.FC = () => (
         </div>
         <div className={classes.expertDescription}>
           <Heading3>Costin Ciobanu</Heading3>
-          <p />
+          <p>
+            Costin Ciobanu este cercetător în științe politice la Universitatea Aarhus (Danemarca). Studiază
+            comportamentul politic și electoral în Europa și America de Nord, inclusiv felul în care este el influențat
+            de șocurile economice și campaniile electorale. Costin are un doctorat în Canada la Universitatea McGill,
+            iar teza sa este despre consecințele politice și electorale ale șocurilor economice.
+          </p>
         </div>
       </div>
     </DivBody>
