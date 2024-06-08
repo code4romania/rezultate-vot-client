@@ -5,7 +5,7 @@ import {
   ElectionCandidatesTableSection,
   useApiResponse,
   DivBody,
-} from "@code4ro/reusable-components";
+} from "@code4romania/reusable-components";
 import React from "react";
 import { Loader } from "./Loader";
 import { EmbedButton, EmbedButtonWrapper } from "./EmbedButton";

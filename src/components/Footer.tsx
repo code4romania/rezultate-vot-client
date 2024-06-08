@@ -1,4 +1,4 @@
-import { Body } from "@code4ro/reusable-components";
+import { Body } from "@code4romania/reusable-components";
 import { faFacebook, faGithub, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";

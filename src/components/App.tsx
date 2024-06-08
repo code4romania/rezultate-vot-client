@@ -5,8 +5,8 @@ import {
   HereMapsAPIKeyProvider,
   ElectionMapOverlayURLContext,
   electionMapOverlayUrl,
-} from "@code4ro/reusable-components";
-import { mockElectionAPI } from "@code4ro/reusable-components/dist/es/mocks";
+} from "@code4romania/reusable-components";
+import { mockElectionAPI } from "@code4romania/reusable-components/dist/es/mocks";
 import { ElectionAPIContext } from "./ElectionAPIContext";
 import { BallotListProvider } from "./BallotListProvider";
 import { AppLayout } from "./AppLayout";

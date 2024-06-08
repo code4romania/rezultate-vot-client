@@ -1,4 +1,4 @@
-import { mergeClasses } from "@code4ro/reusable-components";
+import { mergeClasses } from "@code4romania/reusable-components";
 import React, { PropsWithChildren, ReactNode } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useCompleteScopeFromSearch } from "../functions/urlState";

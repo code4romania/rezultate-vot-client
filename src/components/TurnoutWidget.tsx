@@ -1,5 +1,5 @@
 import React from "react";
-import { ElectionTurnoutSection } from "@code4ro/reusable-components";
+import { ElectionTurnoutSection } from "@code4romania/reusable-components";
 import { useBallotFromRoute } from "../functions/urlState";
 
 export const TurnoutWidget: React.FC = () => {

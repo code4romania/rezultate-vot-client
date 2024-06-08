@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { APIRequestState, ElectionBallotMeta, useApiResponse } from "@code4ro/reusable-components";
+import { APIRequestState, ElectionBallotMeta, useApiResponse } from "@code4romania/reusable-components";
 import { useElectionApi } from "./ElectionAPIContext";
 
 export const BallotListContext = createContext<APIRequestState<ElectionBallotMeta[]>>({
