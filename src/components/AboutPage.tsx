@@ -68,7 +68,7 @@ export const AboutPage: React.FC = () => (
       </p>
       <ul className={classes.lastList}>
         <li>
-          <a href="http://monitorizarevot.ro">
+          <a href="https://www.code4.ro/ro/raport-alegeri-monitorizare-vot">
             <strong>Monitorizare Vot</strong>
           </a>{" "}
           este aplicația web și mobilă dedicată observatorilor electorali independenți - prima aplicație de monitorizare
