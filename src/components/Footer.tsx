@@ -43,7 +43,7 @@ const socialButtons = [
 
 export const Footer: React.FC = () => (
   <div className={classes.root}>
-    <img src={c4ro} className={classes.logo} alt={""} />
+    <img src={c4ro} className={classes.logo} alt="" />
 
     <div className={classes.links}>
       <Link className={classes.link} to="/cookiepolicy">
