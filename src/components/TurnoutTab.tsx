@@ -46,7 +46,7 @@ export const TurnoutTab: React.FC<Props> = ({ meta, ballot, scope, onScopeChange
         {ballot?.observation && <ElectionObservationSection observation={ballot.observation} />}
       </EmbedButtonWrapper>
 
-      {/* This is a quick and dirty fix to show the candidates (or parties) in the turnout tab */}
+      {/* This is a quick fix to show the candidates (or parties) in the turnout tab - perhaps it should be extracted in some other place */}
       {ballot?.results &&
         ballot?.results?.candidates.length > 0 &&
         meta &&
