@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import React from "react";
 
-import { ReactComponent as Code4RomaniaGray } from "../assets/code4romania-gray.svg";
+import c4ro from "../assets/c4ro-white.png";
 import classes from "./Footer.module.scss";
 
 const links = [
@@ -43,7 +43,7 @@ const socialButtons = [
 
 export const Footer: React.FC = () => (
   <div className={classes.root}>
-    <Code4RomaniaGray className={classes.logo} />
+    <img src={c4ro} className={classes.logo} alt={""} />
 
     <div className={classes.links}>
       <Link className={classes.link} to="/cookiepolicy">
