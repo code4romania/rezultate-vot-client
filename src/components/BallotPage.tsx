@@ -133,7 +133,7 @@ const BallotContent: React.FC<{ ballotId: number; onOpenSidebar?: () => void }> 
               </Route>
             )}
             <Route>
-              <Redirect to={`/elections/${ballotId}/turnout${prependQuestionMark(searchFromScope(shownScope))}`} />
+              <Redirect to={`/elections/${ballotId}/results${prependQuestionMark(searchFromScope(shownScope))}`} />
             </Route>
           </Switch>
         )}
