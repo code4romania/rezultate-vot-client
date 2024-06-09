@@ -16,3 +16,57 @@
 .tablesSeparator {
   margin-bottom: 3rem;
 }
+
+
+.root {
+  width: 100%;
+  font-size: (18rem / 16);
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead tr {
+    background-color: #352245;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+
+  tbody tr {
+    &:nth-child(2n+1) {
+      background-color: #F1F1F1;
+    }
+    color: #414141;
+  }
+
+  th, td {
+    padding: 1rem;
+    vertical-align: middle;
+    text-align: left;
+
+    &:not(:first-child) {
+      border-left: 1px #fff solid;
+    }
+  }
+
+  .logoTextCell {
+    display: flex;
+    align-items: center;
+  }
+
+  .partyLogo {
+    margin-right: 10px;
+  }
+
+  .name {
+    vertical-align: middle;
+    font-weight: 900;
+  }
+
+  .root {
+    margin-left: 2rem;
+    width: calc(100% - 2rem);
+  }
+}
