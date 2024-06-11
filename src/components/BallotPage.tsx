@@ -205,7 +205,7 @@ export const BallotPage: React.FC = withToastProvider(() => {
       {!ballotList.hasData && ballotList.loading && <Loader />}
       <ErrorMessage error={ballotList.error} sideMargins />
 
-      {ballotList.data && <SplitView ballots={ballotList.data.filter((ballot) => ballot.ballotId !== 118)} />}
+      {ballotList.data && <SplitView ballots={ballotList.data} />}
     </>
   );
 });
