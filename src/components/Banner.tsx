@@ -12,7 +12,7 @@ export const Banner: React.FC<Props> = ({ className }: Props) => {
       <p>
         <b>
           <a href="https://rezultatevot.ro" target="_blank" rel="noopener noreferrer">
-          &lt; Înapoi la rezultatele live de la alegerile prezidențiale și parlamentare.
+            &lt; Înapoi la rezultatele live de la alegerile prezidențiale și parlamentare.
           </a>
         </b>
       </p>
